@@ -492,7 +492,7 @@ li {
 
 /* Ajuste para o ícone de "Degustados" */
 .filter-option i.fa-smoking {
-    margin-top: -2px; /* Move o ícone para cima */
+    margin-top: -32px; /* Move o ícone para cima */
 }
 
 /* Estilos para as seções quando filtradas */

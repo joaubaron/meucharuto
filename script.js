@@ -62,29 +62,6 @@ function exportData() {
     });
 }
 
-// Função chamada ao clicar em "Exportar" na modal
-function saveFile() {
-    if (!fileUrl || !fileName) return;
-
-    const a = document.createElement("a");
-    a.href = fileUrl;
-    a.download = fileName;
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-
-    // Libera a URL do objeto para evitar vazamento de memória
-    setTimeout(() => URL.revokeObjectURL(fileUrl), 1000);
-
-    // Fecha a modal após o download
-    closeCustomAlert();
-}
-
-// Fecha a modal
-function closeCustomAlert() {
-    document.getElementById('customAlert').style.display = 'none';
-}
-
 // Função para mostrar todas as seções
 function showAll() {
     document.getElementById('favoriteSection').classList.remove('hidden');
@@ -350,56 +327,56 @@ if (newItem) {
 
 function displayCigars() {
     const bandeirasPaises = {
-        "Angola": 'flags/4x3/ao.svg',
-        "Argentina": 'flags/4x3/ar.svg',
-        "Austrália": 'flags/4x3/au.svg',
-        "Bélgica": 'flags/4x3/be.svg',
-        "Bolívia": 'flags/4x3/bo.svg',
-        "Brasil": 'flags/4x3/br.svg',
-        "Bahamas": 'flags/4x3/bs.svg',
-        "Canadá": 'flags/4x3/ca.svg',
-        "Suíça": 'flags/4x3/ch.svg',
-        "Camarões": 'flags/4x3/cm.svg',
-        "China": 'flags/4x3/cn.svg',
-        "Colômbia": 'flags/4x3/co.svg',
-        "Costa Rica": 'flags/4x3/cr.svg',
-        "Cuba": 'flags/4x3/cu.svg',
-        "República Checa": 'flags/4x3/cz.svg',
-		"Alemanha": 'flags/4x3/de.svg',
-        "República Dominicana": 'flags/4x3/do.svg',
-		"Equador": 'flags/4x3/ec.svg',
-        "Espanha": 'flags/4x3/es.svg',
-        "França": 'flags/4x3/fr.svg',
-        "Reino Unido": 'flags/4x3/gb.svg',
-        "Guatemala": 'flags/4x3/gt.svg',
-        "Honduras": 'flags/4x3/hn.svg',
-        "Indonésia": 'flags/4x3/id.svg',
-        "Irlanda": 'flags/4x3/ie.svg',
-        "Israel": 'flags/4x3/il.svg',
-        "Itália": 'flags/4x3/it.svg',
-        "Jamaica": 'flags/4x3/jm.svg',
-        "Japão": 'flags/4x3/jp.svg',
-        "Quênia": 'flags/4x3/ke.svg',
-        "Sri Lanka": 'flags/4x3/lk.svg',
-        "Malawi": 'flags/4x3/mw.svg',
-        "México": 'flags/4x3/mx.svg',
-        "Malásia": 'flags/4x3/my.svg',
-        "Nicarágua": 'flags/4x3/ni.svg',
-        "Panamá": 'flags/4x3/pa.svg',
-        "Peru": 'flags/4x3/pe.svg',
-        "Filipinas": 'flags/4x3/ph.svg',
-        "Portugal": 'flags/4x3/pt.svg',
-        "Paraguai": 'flags/4x3/py.svg',
-        "Cingapura": 'flags/4x3/sg.svg',
-        "El Salvador": 'flags/4x3/sv.svg',
-        "Tailândia": 'flags/4x3/th.svg',
-        "Trinidad e Tobago": 'flags/4x3/tt.svg',
-        "Tanzânia": 'flags/4x3/tz.svg',
-        "Uganda": 'flags/4x3/ug.svg',
-		"Estados Unidos": 'flags/4x3/us.svg',
-        "Uruguai": 'flags/4x3/uy.svg',
-        "Venezuela": 'flags/4x3/ve.svg',
-        "Vietnã": 'flags/4x3/vn.svg'
+        "Angola": 'flags/ao.svg',
+        "Argentina": 'flags/ar.svg',
+        "Austrália": 'flags/au.svg',
+        "Bélgica": 'flags/be.svg',
+        "Bolívia": 'flags/bo.svg',
+        "Brasil": 'flags/br.svg',
+        "Bahamas": 'flags/bs.svg',
+        "Canadá": 'flags/ca.svg',
+        "Suíça": 'flags/ch.svg',
+        "Camarões": 'flags/cm.svg',
+        "China": 'flags/cn.svg',
+        "Colômbia": 'flags/co.svg',
+        "Costa Rica": 'flags/cr.svg',
+        "Cuba": 'flags/cu.svg',
+        "República Checa": 'flags/cz.svg',
+		"Alemanha": 'flags/de.svg',
+        "República Dominicana": 'flags/do.svg',
+		"Equador": 'flags/ec.svg',
+        "Espanha": 'flags/es.svg',
+        "França": 'flags/fr.svg',
+        "Reino Unido": 'flags/gb.svg',
+        "Guatemala": 'flags/gt.svg',
+        "Honduras": 'flags/hn.svg',
+        "Indonésia": 'flags/id.svg',
+        "Irlanda": 'flags/ie.svg',
+        "Israel": 'flags/il.svg',
+        "Itália": 'flags/it.svg',
+        "Jamaica": 'flags/jm.svg',
+        "Japão": 'flags/jp.svg',
+        "Quênia": 'flags/ke.svg',
+        "Sri Lanka": 'flags/lk.svg',
+        "Malawi": 'flags/mw.svg',
+        "México": 'flags/mx.svg',
+        "Malásia": 'flags/my.svg',
+        "Nicarágua": 'flags/ni.svg',
+        "Panamá": 'flags/pa.svg',
+        "Peru": 'flags/pe.svg',
+        "Filipinas": 'flags/ph.svg',
+        "Portugal": 'flags/pt.svg',
+        "Paraguai": 'flags/py.svg',
+        "Cingapura": 'flags/sg.svg',
+        "El Salvador": 'flags/sv.svg',
+        "Tailândia": 'flags/th.svg',
+        "Trinidad e Tobago": 'flags/tt.svg',
+        "Tanzânia": 'flags/tz.svg',
+        "Uganda": 'flags/ug.svg',
+		"Estados Unidos": 'flags/us.svg',
+        "Uruguai": 'flags/uy.svg',
+        "Venezuela": 'flags/ve.svg',
+        "Vietnã": 'flags/vn.svg'
     };
 
     document.getElementById('loading').style.display = 'block';
@@ -581,8 +558,8 @@ function closeDeleteConfirmationModal() {
     deleteCigarId = null;
 }
 
-let fileUrl = "";
-let fileName = "";
+let fileUrl = null; // Variável global para armazenar a URL do arquivo
+let fileName = null; // Variável global para armazenar o nome do arquivo
 
 function exportData() {
     getAllCigars((cigars) => {
@@ -621,6 +598,28 @@ function exportData() {
     });
 }
 
+// Função para iniciar o download do arquivo
+function saveFile() {
+    if (fileUrl && fileName) {
+        const downloadLink = document.createElement('a');
+        downloadLink.href = fileUrl;
+        downloadLink.download = fileName; // Define o nome do arquivo
+        document.body.appendChild(downloadLink);
+        downloadLink.click(); // Simula o clique para iniciar o download
+        document.body.removeChild(downloadLink);
+        URL.revokeObjectURL(fileUrl); // Libera a URL do objeto
+
+        // Fecha a modal após o download
+        closeCustomAlert();
+    } else {
+        alert("Erro: Arquivo não gerado corretamente.");
+    }
+}
+
+// Função para fechar a modal
+function closeCustomAlert() {
+    document.getElementById('customAlert').style.display = 'none';
+}
 
 function importData(event) {
     const file = event.target.files[0]; // Obtém o arquivo selecionado
