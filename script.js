@@ -45,19 +45,6 @@ function closeCustomAlert() {
     document.getElementById('customAlert').style.display = 'none'; // Oculta o modal
 }
 
-// Função para salvar o arquivo
-function saveFile() {
-    if (fileUrl) {
-        const a = document.createElement('a');
-        a.href = fileUrl;
-        a.download = lastExportedFileName;
-        a.click();
-        URL.revokeObjectURL(fileUrl); // Libera o objeto URL
-        fileUrl = null; // Limpa a variável
-    }
-    closeCustomAlert(); // Fecha o modal após salvar o arquivo
-}
-
 // Exemplo de uso ao clicar no botão de exportar
 function exportData() {
     const fileName = 'meuscharutos.json'; // Nome do arquivo salvo
@@ -73,6 +60,29 @@ function exportData() {
         top: topPosition +20, // Ajuste os 50px conforme necessário
         behavior: 'smooth' // Rolagem suave
     });
+}
+
+// Função chamada ao clicar em "Exportar" na modal
+function saveFile() {
+    if (!fileUrl || !fileName) return;
+
+    const a = document.createElement("a");
+    a.href = fileUrl;
+    a.download = fileName;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+
+    // Libera a URL do objeto para evitar vazamento de memória
+    setTimeout(() => URL.revokeObjectURL(fileUrl), 1000);
+
+    // Fecha a modal após o download
+    closeCustomAlert();
+}
+
+// Fecha a modal
+function closeCustomAlert() {
+    document.getElementById('customAlert').style.display = 'none';
 }
 
 // Função para mostrar todas as seções
@@ -452,7 +462,7 @@ function displayCigars() {
                                 <i class="fas fa-undo"></i> Restaurar
                            </button>
                            <button onclick="deletePermanently(${cigar.id})" class="excluir-permanente">
-                                <i class="fas fa-trash"></i> Eliminar de vez
+                                <i class="fas fa-trash"></i> Eliminar
                            </button>`
                         : `<button onclick="editCigar(${cigar.id})" class="editar">
                                 <i class="fas fa-edit"></i> Editar
@@ -571,42 +581,46 @@ function closeDeleteConfirmationModal() {
     deleteCigarId = null;
 }
 
-let fileUrl = null; // Variável para armazenar o URL do arquivo
+let fileUrl = "";
+let fileName = "";
 
 function exportData() {
     getAllCigars((cigars) => {
         // Remove o campo 'flag' de cada charuto antes de exportar
         const cigarsWithoutFlag = cigars.map(cigar => {
-            const { flag, ...rest } = cigar; // Remove o campo 'flag'
+            const { flag, ...rest } = cigar;
             return rest;
         });
 
-        const blob = new Blob([JSON.stringify(cigarsWithoutFlag, null, 2)], { type: 'application/json' });
-        fileUrl = URL.createObjectURL(blob); // Armazena o URL do arquivo
+        // Criação do JSON e Blob
+        const jsonData = JSON.stringify(cigarsWithoutFlag, null, 2);
+        const blob = new Blob([jsonData], { type: "application/json" });
 
-        // Obtém o dia, mês, ano, hora e minutos
+        // Gera a URL do arquivo
+        fileUrl = URL.createObjectURL(blob);
+
+        // Obtém data e hora formatadas
         const now = new Date();
         const day = String(now.getDate()).padStart(2, '0');
         const monthNames = ['jan', 'fev', 'mar', 'abr', 'mai', 'jun', 'jul', 'ago', 'set', 'out', 'nov', 'dez'];
-        const month = monthNames[now.getMonth()]; // Obtém o nome abreviado do mês
-        const year = now.getFullYear().toString().slice(-2); // Obtém os dois últimos dígitos do ano
+        const month = monthNames[now.getMonth()];
+        const year = now.getFullYear().toString().slice(-2);
         const hours = String(now.getHours()).padStart(2, '0');
         const minutes = String(now.getMinutes()).padStart(2, '0');
-
-        // Formata a data e hora no formato DDMMYYYY-HHMM
         const timestamp = `${day}${month}${year}-${hours}${minutes}`;
 
         // Define o nome do arquivo
-        lastExportedFileName = `meuscharutos-${timestamp}.json`;
+        fileName = `meuscharutos-${timestamp}.json`;
 
-        // Salva o nome do arquivo no localStorage
-        localStorage.setItem('lastExportedFileName', lastExportedFileName);
+        // Salva o nome no localStorage para referência futura
+        localStorage.setItem('lastExportedFileName', fileName);
 
-        // Exibe a mensagem na modal com fonte menor
-        document.getElementById('fileNameText').textContent = `?? ${lastExportedFileName}`;
+        // Exibe a modal antes de salvar
+        document.getElementById('fileNameText').textContent = `Arquivo salvo como: ${fileName}`;
         document.getElementById('customAlert').style.display = 'flex';
     });
 }
+
 
 function importData(event) {
     const file = event.target.files[0]; // Obtém o arquivo selecionado

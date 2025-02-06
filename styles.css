@@ -1,5 +1,27 @@
+.actions {
+    display: flex;
+    flex-wrap: wrap; /* Permite que os botões se ajustem à tela menor */
+    justify-content: center;
+    gap: 10px;
+}
+
+.actions button {
+    flex: 1; /* Faz os botões ocuparem o mesmo espaço */
+    min-width: 120px; /* Evita que fiquem muito pequenos */
+    padding: 10px;
+    font-size: 1rem;
+}
+
 @media (max-width: 768px) {
-    /* Estilos específicos para dispositivos móveis */
+    .actions {
+        flex-direction: column; /* Empilha os botões em telas pequenas */
+        align-items: center; /* Centraliza os botões */
+    }
+
+    .actions button {
+        width: 100%; /* Faz os botões ocuparem toda a largura */
+        max-width: 300px; /* Evita que fiquem muito largos em telas maiores */
+    }
 }
 
 body {
