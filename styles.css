@@ -1,0 +1,592 @@
+@media (max-width: 768px) {
+    /* Estilos específicos para dispositivos móveis */
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+    font-family: Arial, sans-serif;
+} 
+
+#loading {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.9);
+    z-index: 1000;
+    font-size: 1.5em;
+    color: #333;
+}
+
+/* Impede qualquer transformação ao passar o mouse, clicar ou ao focar */
+#showModalLink:hover,
+#showModalLink:active,
+#showModalLink:focus {
+    transform: none !important;    /* Impede qualquer transformação de escala */
+    color: #FF0000 !important;     /* Garante que a cor se mantenha */
+    font-size: 19px !important;  /* Garante que o tamanho da fonte se mantenha */
+}
+
+/* Estilo global para todos os links */
+a, a:visited, a:hover {
+    color: black !important;     /* Cor vermelha */
+    font-size: 19px !important;  /* Tamanho fixo */
+    font-weight: bold;             /* Negrito */
+    text-decoration: none;         /* Sem sublinhado */
+    font-family: inherit;          /* Herda a fonte */
+    transform: none !important;    /* Garantir que nenhum link tenha transformação */
+}
+
+/* Estilo específico para o estado :active */
+a:active {
+    font-size: 19px !important;  /* Garante que o tamanho da fonte se mantenha ao clicar */
+}
+        
+    /* Estilos gerais para os botões */
+.actions button {
+    font-size: 15px;
+    font-weight: bold; /* Aplica o negrito (bold) */
+    padding: 8px 16px; /* Diminui o espaçamento interno (padding) */
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    display: inline-flex;
+    align-items: center; /* Alinha ícones e texto verticalmente no centro */
+    width: 100%; /* Ajusta para a largura disponível */
+    max-width: 200px; /* Limita a largura máxima para não ficar muito largo */
+    box-sizing: border-box; /* Garante que o padding seja considerado no tamanho do botão */
+    margin: 3px 0; /* Diminui o espaço entre os botões */
+}
+
+/* Ícones nos botões */
+.actions button i {
+    margin-right: 8px; /* Espaço entre o ícone e o texto */
+}
+
+/* Cor para o botão "Salvar" */
+.salvar {
+    background-color: #28a745; /* Verde (para salvar) */
+}
+.salvar:hover {
+    background-color: #28a745; /* Verde mais escuro no hover */
+}
+
+/* Cor para o botão "Exportar" */
+.exportar {
+    background-color: #FF8C00; /* Azul (para exportação) */
+}
+.exportar:hover {
+    background-color: #FF8C00; /* Azul mais escuro no hover */
+} 
+
+/* Cor para o botão "Importar" */
+.importar {
+    background-color: #808080; /* Amarelo (para importação) */
+}
+.importar:hover {
+    background-color: #808080; /* Amarelo mais escuro no hover */
+}
+
+/* Estilos para os botões na seção cigars-actions */
+
+/* Estilos gerais para os botões */
+.cigar-actions button {
+    font-size: 15px;
+    font-weight: bold;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    width: 100%;
+    max-width: 200px;
+    box-sizing: border-box;
+    margin: 5px 0;
+}
+
+/* Ícones nos botões */
+.cigar-actions button i {
+    margin-right: 8px;
+}
+
+/* Cor para o botão Restaurar */
+.restaurar {
+    background-color: #28a745; /* Verde para restaurar */
+} 
+.restaurar:hover {
+    background-color: #28a745; /* Verde mais escuro no hover */
+}
+
+/* Cor para o botão Excluir Permanentemente */
+.excluir-permanente {
+    background-color: #FF0000; /* Vermelho para exclusão permanente */
+} 
+.excluir-permanente:hover {
+    background-color: #FF0000; /* Vermelho mais escuro no hover */
+}
+
+/* Cor para o botão Editar */
+.editar {
+    background-color: #28a745; /* Azul para editar */
+}
+.editar:hover {
+    background-color: #28a745; /* Azul mais escuro no hover */
+}
+
+/* Cor para o botão Excluir */
+.excluir {
+    background-color: #FF0000; /* Amarelo/laranja para exclusão */
+}
+.excluir:hover {
+    background-color: #FF0000; /* Amarelo mais escuro no hover */
+}
+
+/* Estilo para o ícone dentro do link "Voltar ao topo" */
+.back-to-top i {
+    font-size: 18px; /* Diminui o tamanho da seta */
+    margin-top: 40px;
+    margin-bottom: 40px;
+    vertical-align: middle;
+    position: relative;
+    top: -1px;
+    transition: color 0.3s ease;
+    cursor: pointer;
+}
+
+/* Mantém a mudança de cor ao passar o mouse */
+.back-to-top:hover {
+    color: #007bff;
+    cursor: pointer;
+}
+
+/* Mantém o tamanho fixo ao passar o mouse */
+.back-to-top:hover i {
+    font-size: 18px; /* Garante que a seta continue menor */
+}
+
+/* Ajuste no título 'Excluídos' para manter a consistência */
+#deletedSection {
+    margin-bottom: 0; /* Remove margem extra no final */
+    font-family: 'Lato', sans-serif; /* Mesmo tipo de fonte */
+    color: #333; /* Cor escura para combinar com o link */
+}
+
+        /* Exibir o botão ao rolar para baixo */
+        body {
+            font-family: 'Lato', sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        #favoriteSection, #cigarList, #deletedList {
+            margin-top: 20px;
+        }
+
+        #scrollElement {
+    display: block; /* Torna visível quando rolar para baixo */
+}
+        
+        body {
+            font-family: 'Lato', sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            background: #fff;
+            width: 90%;
+            max-width: 600px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+      	
+    .logo {
+        width: 350px; /* Tamanho maior */
+        border-radius: 50%;
+        margin: 0 auto 10px;
+        display: block;
+        border: 4px solid #ddd;
+    }
+
+        h2 {
+            font-size: 22px;
+            margin-top: 20px;
+            color: #444;
+            text-align: left;
+        }
+
+        form {
+            margin-bottom: 20px;
+        }
+
+        input, button {
+            font-size: 18px;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            margin: 5px 0;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        input:focus {
+            border-color: #007bff;
+            outline: none;
+        }
+
+        .actions {
+            display: flex;
+            gap: 10px;
+        }
+
+        button {
+            background-color: #ff8c00;
+            color: #fff;
+            font-weight: bold;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            flex: 1;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .row {
+            display: flex;
+            gap: 10px;
+        }
+
+        .row input {
+            flex: 1;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 20px 0;
+        }
+
+        li {
+            background: #f9f9f9;
+            margin-bottom: 10px;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .cigar-info {
+            text-align: left;
+        }
+
+        .progress-bar {
+            height: 10px;
+            border-radius: 5px;
+            background: #ddd;
+            overflow: hidden;
+            margin: 5px 0;
+            width: 40%;
+        }
+
+        .progress {
+            height: 100%;
+            background: #007bff;
+            width: 0;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 15px;
+            margin-top: 10px;
+        }
+
+        .favorite {
+            color: #C0C0C0;
+            cursor: pointer;
+            font-size: 20px;
+            margin-top: 5px;
+        }
+
+        .favorite.active {
+            color: #FF4500;
+        } 
+
+        .cigar-actions {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
+            gap: 10px; /* Aumenta espaçamento entre os botões */
+        }
+
+        .cigar-actions {
+    display: flex;
+    gap: 10px; /* Espaçamento entre os botões */
+    flex-wrap: wrap; /* Permite que os botões quebrem para a próxima linha em telas pequenas */
+}
+
+.cigar-actions button {
+    flex: 1; /* Ocupa o espaço disponível */
+    min-width: 120px; /* Largura mínima para evitar que os botões fiquem muito pequenos */
+    padding: 8px 16px;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-align: center; /* Centraliza o texto dentro do botão */
+}
+        
+        #initialMessageModal {
+    display: none; /* Removido o !important */
+}
+    
+    #initialMessageModal {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.8);
+        z-index: 9999;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        overflow: hidden;
+    }
+    
+    /* Separação visual entre seções */
+.section {
+    margin-top: 20px; /* Menor espaçamento superior */
+    padding-top: 10px; /* Menor espaçamento interno */
+    border-top: 2px dashed #ccc; /* Linha tracejada */
+}
+
+.section h2 {
+    margin-bottom: 10px;
+    font-size: 22px;
+    color: #444;
+    text-align: left;
+    background-color: #f9f9f9; /* Fundo destacado para o título */
+    padding: 10px;
+    border-radius: 8px;
+}
+
+#showModalLink:hover {
+    opacity: 0.9;
+    text-shadow: 0 2px 4px rgba(255, 0, 0, 0.1);
+}
+
+#favoriteList {
+    background-color: #E8E8E8; /* Fundo amarelado claro */
+    padding: 2px;
+    border-radius: 8px;
+} 
+
+#cigarList {
+    background-color: #E8E8E8; /* Fundo esverdeado claro */
+    padding: 2px;
+    border-radius: 8px;
+}
+
+#deletedList {
+    background-color: #E8E8E8; /* Fundo avermelhado claro */
+    padding: 2px;
+    border-radius: 8px;
+}
+
+/* Ajuste no espaçamento entre os itens */
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+li {
+    margin-bottom: 3px;
+}
+
+/* Estilos para o menu de filtro minimalista */
+.filter-menu {
+    display: flex;
+    justify-content: center; /* Centraliza os botões horizontalmente */
+    margin: 10px 0;
+    font-family: 'Lato', sans-serif;
+    flex-wrap: wrap; /* Permite quebra de linha em telas pequenas */
+    width: 100%; /* Garante que o menu ocupe toda a largura da tela sem ultrapassar */
+    overflow: hidden; /* Evita rolagem lateral */
+    gap: 4px; /* Espaçamento entre os botões */
+}
+
+/* Ajuste para os botões ocuparem espaço proporcional */
+.filter-option {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    padding: 5px;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    color: #333;
+    background-color: #ffffff;
+    font-size: 15px;
+    white-space: nowrap;
+    flex: 1; /* Flexível, ocupa o máximo de espaço disponível */
+    max-width: 24%; /* Limita o tamanho máximo para evitar ultrapassar a tela */
+    box-sizing: border-box;
+    text-align: center;
+}
+
+/* Reduz tamanho da fonte e altura dos botões em telas menores */
+@media (max-width: 600px) {
+    .filter-option {
+        font-size: 13px; /* Fonte menor em telas pequenas */
+        padding: 4px;
+        width: 100%; /* Faz os botões ocuparem 100% da largura em telas pequenas */
+        max-width: none; /* Remove o limite de largura */
+    }
+}
+
+.filter-option:hover {
+    background-color: #e6e6e6;
+    color: #000;
+}
+
+.filter-option i {
+    font-size: 13px;
+    color: #ff8c00;
+}
+
+/* Ajuste para o ícone de "Degustados" */
+.filter-option i.fa-smoking {
+    margin-top: -2px; /* Move o ícone para cima */
+}
+
+/* Estilos para as seções quando filtradas */
+.hidden {
+    display: none;
+}
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Conteúdo do Modal */
+.modal-content {
+    background: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    max-width: 350px;
+    width: 80%;
+    text-align: center;
+    color: #333;
+}
+
+/* Mensagem */
+.modal-message {
+    font-size: 1.2em;
+    margin-bottom: 15px;
+}
+
+/* Nome do arquivo */
+.file-name {
+    font-size: 1.0em;
+    font-weight: bold;
+    color: #007bff;
+}
+
+/* Estilo dos Botões Modal Exportar */
+.modal-buttons button {
+    padding: 6px 8px !important;  /* Aumentando a altura com mais padding superior e inferior */
+    font-size: 17px !important;
+    font-weight: bold !important;
+    border-radius: 5px !important;
+    text-align: center !important;
+    width: 40px !important;
+    border: none !important;
+    cursor: pointer !important;
+    transition: background-color 0.3s ease !important;
+    display: inline-block !important;  /* Força o botão a ser em linha, respeitando a largura */
+    white-space: nowrap !important;  /* Evita que o texto quebre dentro do botão */
+}
+
+/* Botão Exportar */
+.export-button {
+    background-color: #FF8C00 !important;
+    color: white !important;
+}
+.export-button:hover {
+    background-color: FF8C00 !important;
+}
+
+/* Botão Cancelar */
+.cancel-button {
+    background-color: #28a745 !important;
+    color: white !important;
+}
+.cancel-button:hover {
+    background-color: #28a745 !important;
+}
+
+/* Estilos do contêiner dos botões */
+.modal-buttons {
+    display: flex !important;  /* Garantir que o layout seja flex */
+    flex-direction: row !important;  /* Direção dos itens no eixo horizontal */
+    justify-content: center !important;  /* Centraliza os botões */
+    gap: 15px !important;  /* Ajusta o espaçamento entre os botões */
+}
+
+footer {
+    background: #ffffff; /* Fundo cinza claro, igual aos itens das listas */
+    color: #333;
+    text-align: center;
+    margin-top: 2px;
+    position: relative;
+    padding: 5px; /* Espaçamento interno, igual aos itens das listas */
+    border: 3px solid #ddd; /* Borda sólida cinza, igual aos itens das listas */
+    border-radius: 5px; /* Bordas arredondadas, igual aos itens das listas */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centraliza o conteúdo horizontalmente */
+    gap: 2px; /* Espaçamento entre os elementos internos */
+}
