@@ -1,26 +1,25 @@
 .actions {
     display: flex;
-    flex-wrap: wrap; /* Permite que os botões se ajustem à tela menor */
-    justify-content: center;
-    gap: 10px;
+    justify-content: center; /* Centraliza os botões */
+    gap: 5px; /* Espaçamento menor entre os botões */
+    padding: 5px;
 }
 
 .actions button {
-    flex: 1; /* Faz os botões ocuparem o mesmo espaço */
-    min-width: 120px; /* Evita que fiquem muito pequenos */
-    padding: 10px;
-    font-size: 1rem;
+    flex: 1; /* Faz com que todos os botões tenham o mesmo tamanho */
+    max-width: 150px; /* Evita que fiquem muito grandes em telas largas */
+    min-width: 80px; /* Mantém um tamanho mínimo para não ficarem muito pequenos */
+    padding: 8px;
+    font-size: 0.85rem; /* Reduz o tamanho da fonte para caber melhor */
+    white-space: nowrap; /* Impede quebra de linha no texto do botão */
 }
 
-@media (max-width: 768px) {
-    .actions {
-        flex-direction: column; /* Empilha os botões em telas pequenas */
-        align-items: center; /* Centraliza os botões */
-    }
-
+/* Garante que os botões se ajustem corretamente em telas muito pequenas */
+@media (max-width: 400px) {
     .actions button {
-        width: 100%; /* Faz os botões ocuparem toda a largura */
-        max-width: 300px; /* Evita que fiquem muito largos em telas maiores */
+        font-size: 0.75rem; /* Reduz um pouco o tamanho do texto */
+        padding: 6px;
+        min-width: 70px;
     }
 }
 
@@ -74,24 +73,6 @@ a:active {
     font-size: 19px !important;  /* Garante que o tamanho da fonte se mantenha ao clicar */
 }
         
-    /* Estilos gerais para os botões */
-.actions button {
-    font-size: 15px;
-    font-weight: bold; /* Aplica o negrito (bold) */
-    padding: 8px 16px; /* Diminui o espaçamento interno (padding) */
-    border: none;
-    border-radius: 5px;
-    color: white;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    display: inline-flex;
-    align-items: center; /* Alinha ícones e texto verticalmente no centro */
-    width: 100%; /* Ajusta para a largura disponível */
-    max-width: 200px; /* Limita a largura máxima para não ficar muito largo */
-    box-sizing: border-box; /* Garante que o padding seja considerado no tamanho do botão */
-    margin: 3px 0; /* Diminui o espaço entre os botões */
-}
-
 /* Ícones nos botões */
 .actions button i {
     margin-right: 8px; /* Espaço entre o ícone e o texto */
@@ -460,42 +441,42 @@ li {
 /* Estilos para o menu de filtro minimalista */
 .filter-menu {
     display: flex;
-    justify-content: center; /* Centraliza os botões horizontalmente */
-    margin: 10px 0;
-    font-family: 'Lato', sans-serif;
-    flex-wrap: wrap; /* Permite quebra de linha em telas pequenas */
-    width: 100%; /* Garante que o menu ocupe toda a largura da tela sem ultrapassar */
-    overflow: hidden; /* Evita rolagem lateral */
-    gap: 4px; /* Espaçamento entre os botões */
+    flex-wrap: wrap; /* Permite que os itens se ajustem em várias linhas se necessário */
+    justify-content: space-between; /* Distribui os itens igualmente */
+    gap: 5px; /* Espaçamento entre os itens */
+    padding: 10px;
 }
 
-/* Ajuste para os botões ocuparem espaço proporcional */
 .filter-option {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 5px;
-    padding: 5px;
-    border-radius: 3px;
+    flex: 1 1 22%; /* Permite que os itens ocupem até 22% da largura */
+    max-width: 150px; /* Limita o tamanho máximo dos itens */
+    min-width: 80px; /* Impede que fiquem muito pequenos */
+    text-align: center; /* Centraliza o texto */
+    padding: 8px 5px;
+    font-size: 0.85rem; /* Ajusta o tamanho da fonte */
+    background-color: #f5f5f5; /* Adiciona um fundo para destaque */
+    border-radius: 5px; /* Borda arredondada */
     cursor: pointer;
-    transition: background-color 0.3s ease, color 0.3s ease;
-    color: #333;
-    background-color: #ffffff;
-    font-size: 15px;
-    white-space: nowrap;
-    flex: 1; /* Flexível, ocupa o máximo de espaço disponível */
-    max-width: 24%; /* Limita o tamanho máximo para evitar ultrapassar a tela */
-    box-sizing: border-box;
-    text-align: center;
+    transition: background 0.3s;
 }
 
-/* Reduz tamanho da fonte e altura dos botões em telas menores */
-@media (max-width: 600px) {
+/* Efeito de hover ao passar o mouse */
+.filter-option:hover {
+    background-color: #ddd;
+}
+
+/* Responsividade para telas muito pequenas */
+@media (max-width: 768px) {
     .filter-option {
-        font-size: 13px; /* Fonte menor em telas pequenas */
-        padding: 4px;
-        width: 100%; /* Faz os botões ocuparem 100% da largura em telas pequenas */
-        max-width: none; /* Remove o limite de largura */
+        flex: 1 1 45%; /* Permite 2 itens por linha em telas menores (até 768px) */
+    }
+}
+
+@media (max-width: 400px) {
+    .filter-option {
+        font-size: 0.75rem; /* Reduz o tamanho do texto */
+        padding: 6px 4px;
+        min-width: 70px; /* Ajusta o tamanho mínimo */
     }
 }
 
