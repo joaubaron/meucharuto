@@ -1,1 +1,1 @@
-# meucharuto
+Descubra o prazer de organizar suas degustações de charutos. Você pode registrar e avaliar cada experiência com charutos de forma prática, completa e personalizada. Ideal para apreciadores e colecionadores de charutos, o app ajuda você a acompanhar sua jornada no mundo do tabaco fino.
