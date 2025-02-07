@@ -35,41 +35,87 @@
 .actions {
     display: flex;
     justify-content: center;
-    gap: 10px; /* Espaçamento semelhante aos botões do filtro */
-    margin-top: 10px;
+    gap: 10px; /* Mesmo espaçamento entre os botões */
+    margin-top: 10px; /* Mesma margem superior */
+}
+
+/* Estilo dos botões Salvar, Exportar e Importar */
+.actions {
+    display: flex;
+    justify-content: center;
+    gap: 10px; /* Mesmo espaçamento entre os botões */
+    margin-top: 10px; /* Mesma margem superior */
 }
 
 .actions button {
-    padding: 8px 15px; /* Ajuste para ficar semelhante aos botões do filtro */
-    font-size: 1rem; /* Tamanho de fonte semelhante */
-    background-color: #f5f5f5; /* Cor de fundo semelhante */
-    border-radius: 5px;
+    padding: 8px 15px; /* Mesmo padding dos botões de filtro */
+    font-size: 1rem; /* Mesmo tamanho de fonte */
+    background-color: #f5f5f5; /* Mesma cor de fundo */
+    border-radius: 5px; /* Mesmo border-radius */
     cursor: pointer;
-    transition: background 0.3s, transform 0.2s;
+    transition: background 0.3s, transform 0.2s; /* Mesma transição */
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 8px; /* Espaçamento entre ícone e texto */
-    border: 1px solid #ccc; /* Borda semelhante */
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1); /* Sombra semelhante */
-    color: #333; /* Cor do texto */
-    font-weight: bold; /* Texto em negrito */
+    gap: 8px; /* Mesmo espaçamento entre ícone e texto */
+    border: 1px solid #ccc; /* Mesma borda */
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1); /* Mesma sombra */
+    color: #333; /* Mesma cor do texto */
+    font-weight: bold; /* Mesmo peso da fonte */
+    width: auto; /* Largura automática para ajustar ao conteúdo */
+    min-width: 100px; /* Largura mínima para evitar que fiquem muito pequenos */
+    white-space: nowrap; /* Impede que o texto quebre em várias linhas */
+    flex: 1; /* Ocupa o espaço disponível proporcionalmente */
 }
 
 .actions button:hover {
-    background-color: #e0e0e0; /* Cor de fundo ao passar o mouse */
-    transform: scale(1.05); /* Efeito de escala ao passar o mouse */
+    background-color: #e0e0e0; /* Mesmo efeito hover */
+    transform: scale(1.05); /* Mesmo efeito de escala */
 }
 
-white-space: nowrap; /* Impede quebra de linha no texto do botão */
+/* Cores específicas para cada botão */
+.salvar {
+    background-color: #28a745; /* Verde para Salvar */
+    color: white; /* Texto branco */
 }
 
-/* Garante que os botões se ajustem corretamente em telas muito pequenas */
+.exportar {
+    background-color: #FF8C00; /* Laranja para Exportar */
+    color: white; /* Texto branco */
+}
+
+.importar {
+    background-color: #808080; /* Cinza para Importar */
+    color: white; /* Texto branco */
+}
+
+/* Efeito hover para cada botão */
+.salvar:hover {
+    background-color: #218838; /* Verde mais escuro ao passar o mouse */
+}
+
+.exportar:hover {
+    background-color: #e07b00; /* Laranja mais escuro ao passar o mouse */
+}
+
+.importar:hover {
+    background-color: #6c757d; /* Cinza mais escuro ao passar o mouse */
+}
+
+/* Ajuste para telas pequenas */
+@media (max-width: 600px) {
+    .actions button {
+        font-size: 0.9rem; /* Reduz o tamanho da fonte em telas pequenas */
+        padding: 6px 12px; /* Reduz o padding em telas pequenas */
+        min-width: 80px; /* Largura mínima menor em telas pequenas */
+    }
+}
+
 @media (max-width: 400px) {
     .actions button {
-        font-size: 0.75rem; /* Reduz um pouco o tamanho do texto */
-        padding: 6px;
-        min-width: 70px;
+        font-size: 0.8rem; /* Reduz ainda mais o tamanho da fonte em telas muito pequenas */
+        padding: 5px 10px; /* Reduz o padding em telas muito pequenas */
+        min-width: 70px; /* Largura mínima ainda menor */
     }
 }
 
@@ -120,35 +166,6 @@ a:active {
 .actions button i {
     font-size: 13px; /* Tamanho do ícone semelhante */
     color: #ff8c00; /* Cor do ícone semelhante */
-}
-
-/* Cores específicas para cada botão */
-.salvar {
-    background-color: #28a745; /* Verde para Salvar */
-    color: white; /* Texto branco */
-}
-
-.exportar {
-    background-color: #FF8C00; /* Laranja para Exportar */
-    color: white; /* Texto branco */
-}
-
-.importar {
-    background-color: #808080; /* Cinza para Importar */
-    color: white; /* Texto branco */
-}
-
-/* Efeito hover para cada botão */
-.salvar:hover {
-    background-color: #218838; /* Verde mais escuro ao passar o mouse */
-}
-
-.exportar:hover {
-    background-color: #e07b00; /* Laranja mais escuro ao passar o mouse */
-}
-
-.importar:hover {
-    background-color: #6c757d; /* Cinza mais escuro ao passar o mouse */
 }
 
 /* Estilos gerais para os botões */
@@ -488,34 +505,38 @@ li {
         gap: 10px; /* Espaçamento semelhante aos botões Salvar, Exportar e Importar */
         margin-top: 10px;
     }
-    .filter-option {
-        padding: 8px 15px; /* Ajuste para ficar semelhante aos botões */
-        font-size: 1rem; /* Tamanho de fonte semelhante */
-        background-color: #f5f5f5;
-        border-radius: 5px;
-        cursor: pointer;
-        transition: background 0.3s, transform 0.2s;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 8px;
-        border: 1px solid #ccc;
-        box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
-    }
-    .filter-option:hover {
-        background-color: #e0e0e0;
-        transform: scale(1.05);
-    }
+   .filter-option {
+    padding: 8px 15px; /* Mesmo padding dos botões */
+    font-size: 1rem; /* Mesmo tamanho de fonte */
+    background-color: #f5f5f5; /* Mesma cor de fundo */
+    border-radius: 5px; /* Mesmo border-radius */
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s; /* Mesma transição */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px; /* Mesmo espaçamento entre ícone e texto */
+    border: 1px solid #ccc; /* Mesma borda */
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1); /* Mesma sombra */
+    color: #333; /* Mesma cor do texto */
+    font-weight: bold; /* Mesmo peso da fonte */
+    width: 120px; /* Largura fixa para todos os botões */
+    min-width: 120px; /* Garante que o botão não encolha */
+    max-width: 120px; /* Garante que o botão não expanda */
+    white-space: nowrap; /* Impede que o texto quebre em várias linhas */
+}
 
-/* Responsividade para telas muito pequenas */
+.filter-option:hover {
+    background-color: #e0e0e0; /* Mesmo efeito hover */
+    transform: scale(1.05); /* Mesmo efeito de escala */
+}
+
+/* Garante que os botões se ajustem corretamente em telas muito pequenas */
 @media (max-width: 400px) {
-    .restaurar,
-    .excluir-permanente,
-    .editar,
-    .excluir {
-        font-size: 0.75rem; /* Reduz um pouco o tamanho do texto */
-        padding: 6px;
-        min-width: 70px;
+    .actions button {
+        font-size: 0.75rem; /* Reduz o tamanho da fonte */
+        padding: 6px; /* Reduz o padding */
+        min-width: 70px; /* Largura mínima menor */
     }
 }
 

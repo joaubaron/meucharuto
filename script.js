@@ -435,11 +435,12 @@ function displayCigars() {
                 </div>
                 <div class="cigar-actions">
                     ${cigar.deleted
-                        ? `<button onclick="restoreCigar(${cigar.id})" class="restaurar">
-                                <i class="fas fa-undo"></i> Restaurar
-                           </button>
-                           <button onclick="deletePermanently(${cigar.id})" class="excluir-permanente">
-                                <i class="fas fa-trash"></i> Eliminar
+                        ? `<button type="button" onclick="restoreCigar(${cigar.id})" class="restaurar">
+    <i class="fas fa-undo"></i> Restaurar
+</button>
+<button type="button" onclick="deletePermanently(${cigar.id})" class="excluir-permanente">
+    <i class="fas fa-trash"></i> Eliminar
+</button>
                            </button>`
                         : `<button onclick="editCigar(${cigar.id})" class="editar">
                                 <i class="fas fa-edit"></i> Editar

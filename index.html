@@ -44,7 +44,7 @@
         <i class="fas fa-file-import"></i> Importar
     </button>
     <input type="file" id="fileInput" style="display: none;">
-</div> <!-- Fechamento correto da div actions -->
+</div>
 
 <!-- Menu de Filtro Minimalista -->
 <div class="filter-menu">
@@ -62,10 +62,10 @@
 <h2 id="favoriteSection" class="section hidden">Meus Favoritos <i class="fas fa-star" style="color: #FF4500;"></i></h2>
 <ul id="favoriteList" class="hidden"></ul>
 
-<h2 class="section hidden">Meu Charutos <i class="fas fa-smoking" style="color: #28a745; position: relative; top: -3px;"></i></h2>
+<h2 class="section hidden">Charutos Degustados <i class="fas fa-smoking" style="color: #28a745; position: relative; top: -3px;"></i></h2>
 <ul id="cigarList" class="hidden"></ul>
 
-<h2 id="deletedSection" class="section hidden">Excluídos <i class="fas fa-trash-alt trash-icon" style="color: #FF0000;"></i></h2>
+<h2 id="deletedSection" class="section hidden">Ítens Excluídos <i class="fas fa-trash-alt trash-icon" style="color: #FF0000;"></i></h2>
 <ul id="deletedList" class="hidden"></ul>
 
 <!-- Link para , acima da logo -->
@@ -111,10 +111,10 @@
     <div style="background: #fff; padding: 20px; border-radius: 10px; max-width: 350px; width: 80%; text-align: center;">
         <p style="font-weight: bold; font-size: 1.1em;">Tem certeza de que deseja eliminar este charuto permanentemente?</p>
         <div style="margin-top: 20px; display: flex; justify-content: center; gap: 10px;">
-            <button id="confirmDeleteButton" class="filter-option">
+            <button id="confirmDeleteButton" type="button" class="filter-option">
                 <i class="fas fa-trash"></i> Eliminar
             </button>
-            <button id="cancelDeleteButton" class="filter-option">
+            <button id="cancelDeleteButton" type="button" class="filter-option">
                 <i class="fas fa-circle-xmark"></i> Cancelar
             </button>
         </div>
@@ -134,12 +134,14 @@
 
         <!-- Botões da modal -->
         <div class="modal-buttons">
-            <button onclick="saveFile()" class="filter-option">
-                <i class="fas fa-file-export"></i> Exportar
-            </button>
-            <button onclick="closeCustomAlert()" class="filter-option">
-                <i class="fas fa-circle-xmark"></i> Cancelar
-            </button>
+            <button type="button" onclick="saveFile()" class="filter-option">
+    <i class="fas fa-file-export"></i> Exportar
+</button>
+			
+            <button type="button" onclick="closeCustomAlert()" class="filter-option">
+    <i class="fas fa-circle-xmark"></i> Cancelar
+</button>
+
         </div>
     </div>
 </div>
