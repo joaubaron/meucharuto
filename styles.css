@@ -40,17 +40,6 @@ white-space: nowrap; /* Impede quebra de linha no texto do botão */
     }
 }
 
-body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    margin: 0;
-    padding: 0;
-    background-color: #f5f5f5;
-    font-family: Arial, sans-serif;
-} 
-
 #loading {
     position: fixed;
     top: 0;
@@ -83,6 +72,10 @@ a, a:visited, a:hover {
     text-decoration: none;         /* Sem sublinhado */
     font-family: inherit;          /* Herda a fonte */
     transform: none !important;    /* Garantir que nenhum link tenha transformação */
+}
+
+input[type="text"], input[type="number"] {
+    font-size: 12px !important;  /* Usa !important para garantir que o estilo seja aplicado */
 }
 
 /* Estilo específico para o estado :active */
@@ -124,8 +117,6 @@ a:active {
 .importar:hover {
     background-color: #6c757d; /* Cinza mais escuro ao passar o mouse */
 }
-
-/* Estilos para os botões na seção cigars-actions */
 
 /* Estilos gerais para os botões */
 .cigar-actions button {
@@ -211,18 +202,6 @@ a:active {
     font-family: 'Lato', sans-serif; /* Mesmo tipo de fonte */
     color: #333; /* Cor escura para combinar com o link */
 }
-
-        /* Exibir o botão ao rolar para baixo */
-        body {
-            font-family: 'Lato', sans-serif;
-            background-color: #f5f5f5;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-        }
 
         #favoriteSection, #cigarList, #deletedList {
             margin-top: 20px;
