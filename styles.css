@@ -141,36 +141,44 @@ a:active {
     margin-right: 8px;
 }
 
-/* Cor para o botão Restaurar */
-.restaurar {
-    background-color: #28a745; /* Verde para restaurar */
-} 
-.restaurar:hover {
-    background-color: #28a745; /* Verde mais escuro no hover */
-}
-
-/* Cor para o botão Excluir Permanentemente */
-.excluir-permanente {
-    background-color: #FF0000; /* Vermelho para exclusão permanente */
-} 
-.excluir-permanente:hover {
-    background-color: #FF0000; /* Vermelho mais escuro no hover */
-}
-
-/* Cor para o botão Editar */
-.editar {
-    background-color: #28a745; /* Azul para editar */
-}
-.editar:hover {
-    background-color: #28a745; /* Azul mais escuro no hover */
-}
-
-/* Cor para o botão Excluir */
+/* Estilo dos botões Restaurar, Excluir Permanentemente, Editar e Excluir */
+.restaurar,
+.excluir-permanente,
+.editar,
 .excluir {
-    background-color: #FF0000; /* Amarelo/laranja para exclusão */
+    padding: 8px 15px; /* Ajuste para ficar semelhante aos botões do filtro */
+    font-size: 1rem; /* Tamanho de fonte semelhante */
+    background-color: #f5f5f5; /* Cor de fundo semelhante */
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px; /* Espaçamento entre ícone e texto */
+    border: 1px solid #ccc !important; /* Garantir que a borda seja aplicada com !important */
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1); /* Sombra semelhante */
+    color: #333 !important; /* Cor do texto preta com !important */
+    font-weight: bold; /* Texto em negrito */
 }
+
+/* Efeito hover para os botões */
+.restaurar:hover,
+.excluir-permanente:hover,
+.editar:hover,
 .excluir:hover {
-    background-color: #FF0000; /* Amarelo mais escuro no hover */
+    background-color: #e0e0e0; /* Cor de fundo ao passar o mouse */
+    transform: scale(1.05); /* Efeito de escala ao passar o mouse */
+    border: 1px solid #ccc !important; /* Garantir que a borda continue visível */
+}
+
+/* Estilo dos ícones dentro dos botões */
+.restaurar i,
+.excluir-permanente i,
+.editar i,
+.excluir i {
+    font-size: 13px; /* Tamanho do ícone semelhante */
+    color: #ff8c00; /* Cor do ícone semelhante */
 }
 
 /* Estilo para o ícone dentro do link "Voltar ao topo" */
@@ -467,17 +475,14 @@ li {
     }
 
 /* Responsividade para telas muito pequenas */
-@media (max-width: 768px) {
-    .filter-option {
-        flex: 1 1 45%; /* Permite 2 itens por linha em telas menores (até 768px) */
-    }
-}
-
 @media (max-width: 400px) {
-    .filter-option {
-        font-size: 0.75rem; /* Reduz o tamanho do texto */
-        padding: 6px 4px;
-        min-width: 70px; /* Ajusta o tamanho mínimo */
+    .restaurar,
+    .excluir-permanente,
+    .editar,
+    .excluir {
+        font-size: 0.75rem; /* Reduz um pouco o tamanho do texto */
+        padding: 6px;
+        min-width: 70px;
     }
 }
 
