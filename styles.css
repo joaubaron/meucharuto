@@ -1,17 +1,34 @@
+/* Estilo dos botões Salvar, Exportar e Importar */
 .actions {
     display: flex;
-    justify-content: center; /* Centraliza os botões */
-    gap: 5px; /* Espaçamento menor entre os botões */
-    padding: 5px;
+    justify-content: center;
+    gap: 10px; /* Espaçamento semelhante aos botões do filtro */
+    margin-top: 10px;
 }
 
 .actions button {
-    flex: 1; /* Faz com que todos os botões tenham o mesmo tamanho */
-    max-width: 150px; /* Evita que fiquem muito grandes em telas largas */
-    min-width: 80px; /* Mantém um tamanho mínimo para não ficarem muito pequenos */
-    padding: 8px;
-    font-size: 0.85rem; /* Reduz o tamanho da fonte para caber melhor */
-    white-space: nowrap; /* Impede quebra de linha no texto do botão */
+    padding: 8px 15px; /* Ajuste para ficar semelhante aos botões do filtro */
+    font-size: 1rem; /* Tamanho de fonte semelhante */
+    background-color: #f5f5f5; /* Cor de fundo semelhante */
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px; /* Espaçamento entre ícone e texto */
+    border: 1px solid #ccc; /* Borda semelhante */
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1); /* Sombra semelhante */
+    color: #333; /* Cor do texto */
+    font-weight: bold; /* Texto em negrito */
+}
+
+.actions button:hover {
+    background-color: #e0e0e0; /* Cor de fundo ao passar o mouse */
+    transform: scale(1.05); /* Efeito de escala ao passar o mouse */
+}
+
+white-space: nowrap; /* Impede quebra de linha no texto do botão */
 }
 
 /* Garante que os botões se ajustem corretamente em telas muito pequenas */
@@ -73,33 +90,39 @@ a:active {
     font-size: 19px !important;  /* Garante que o tamanho da fonte se mantenha ao clicar */
 }
         
-/* Ícones nos botões */
+/* Estilo dos ícones dentro dos botões */
 .actions button i {
-    margin-right: 8px; /* Espaço entre o ícone e o texto */
+    font-size: 13px; /* Tamanho do ícone semelhante */
+    color: #ff8c00; /* Cor do ícone semelhante */
 }
 
-/* Cor para o botão "Salvar" */
+/* Cores específicas para cada botão */
 .salvar {
-    background-color: #28a745; /* Verde (para salvar) */
-}
-.salvar:hover {
-    background-color: #28a745; /* Verde mais escuro no hover */
+    background-color: #28a745; /* Verde para Salvar */
+    color: white; /* Texto branco */
 }
 
-/* Cor para o botão "Exportar" */
 .exportar {
-    background-color: #FF8C00; /* Azul (para exportação) */
+    background-color: #FF8C00; /* Laranja para Exportar */
+    color: white; /* Texto branco */
 }
-.exportar:hover {
-    background-color: #FF8C00; /* Azul mais escuro no hover */
-} 
 
-/* Cor para o botão "Importar" */
 .importar {
-    background-color: #808080; /* Amarelo (para importação) */
+    background-color: #808080; /* Cinza para Importar */
+    color: white; /* Texto branco */
 }
+
+/* Efeito hover para cada botão */
+.salvar:hover {
+    background-color: #218838; /* Verde mais escuro ao passar o mouse */
+}
+
+.exportar:hover {
+    background-color: #e07b00; /* Laranja mais escuro ao passar o mouse */
+}
+
 .importar:hover {
-    background-color: #808080; /* Amarelo mais escuro no hover */
+    background-color: #6c757d; /* Cinza mais escuro ao passar o mouse */
 }
 
 /* Estilos para os botões na seção cigars-actions */
