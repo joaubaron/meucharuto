@@ -192,8 +192,10 @@ function showMessageBeforeContent() {
         messageElement.style.color = 'black'; // Texto preto
         messageElement.style.textAlign = 'center'; // Centralizar o texto
         messageElement.style.padding = '8px 20px'; // Espaçamento interno (margens laterais inclusas)
-        messageElement.style.fontSize = '18px'; // Tamanho da fonte
+        messageElement.style.fontSize = 'clamp(14px, 3vw, 18px)'; // Fonte responsiva (mínimo 14px, máximo 18px)
         messageElement.style.zIndex = '10000';  // Aumentar o z-index para garantir que fique acima de outros elementos
+        messageElement.style.lineHeight = '1.5'; // Espaçamento entre linhas para garantir 2 linhas
+        messageElement.style.whiteSpace = 'pre-line'; // Permite quebras de linha
 
         // Adicionando a mensagem ao elemento
         const messageText = document.createElement('p');
