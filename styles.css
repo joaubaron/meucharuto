@@ -593,19 +593,22 @@ li {
     color: #007bff;
 }
 
-/* Estilo dos Botões Modal Exportar */
+/* Estilo dos botões da modal de exportação */
 .modal-buttons button {
-    padding: 6px 8px !important;  /* Aumentando a altura com mais padding superior e inferior */
-    font-size: 17px !important;
-    font-weight: bold !important;
-    border-radius: 5px !important;
-    text-align: center !important;
-    width: 40px !important;
-    border: none !important;
-    cursor: pointer !important;
-    transition: background-color 0.3s ease !important;
-    display: inline-block !important;  /* Força o botão a ser em linha, respeitando a largura */
-    white-space: nowrap !important;  /* Evita que o texto quebre dentro do botão */
+    padding: 8px 15px; /* Mesmo padding dos botões do filtro */
+    font-size: 1rem; /* Mesmo tamanho de fonte */
+    background-color: #f5f5f5; /* Mesma cor de fundo */
+    border-radius: 5px; /* Mesmo border-radius */
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s; /* Mesma transição */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px; /* Mesmo espaçamento entre ícone e texto */
+    border: 1px solid #ccc; /* Mesma borda */
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1); /* Mesma sombra */
+    color: #333; /* Mesma cor do texto */
+    font-weight: bold; /* Mesmo peso da fonte */
 }
 
 /* Botão Exportar */
