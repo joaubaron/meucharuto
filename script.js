@@ -415,7 +415,7 @@ function displayCigars() {
             );
 
             // Caso o país não seja encontrado, usar a bandeira padrão
-            const flagSrc = bandeiraSrc ? bandeirasPaises[bandeiraSrc] : "flags/4x3/un.svg";
+            const flagSrc = bandeiraSrc ? bandeirasPaises[bandeiraSrc] : "flags/un.svg";
 
             li.innerHTML = `
                 <div class="cigar-info">
