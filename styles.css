@@ -505,7 +505,8 @@ li {
         gap: 10px; /* Espaçamento semelhante aos botões Salvar, Exportar e Importar */
         margin-top: 10px;
     }
-   .filter-option {
+   /* Estilo dos botões do filtro minimalista */
+.filter-option {
     padding: 8px 15px; /* Mesmo padding dos botões */
     font-size: 1rem; /* Mesmo tamanho de fonte */
     background-color: #f5f5f5; /* Mesma cor de fundo */
@@ -519,11 +520,11 @@ li {
     border: 1px solid #ccc; /* Mesma borda */
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1); /* Mesma sombra */
     color: #333; /* Mesma cor do texto */
-    font-weight: bold; /* Mesmo peso da fonte */
-    width: 120px; /* Largura fixa para todos os botões */
-    min-width: 120px; /* Garante que o botão não encolha */
-    max-width: 120px; /* Garante que o botão não expanda */
+    font-weight: normal; /* Removido o negrito */
+    width: auto; /* Largura automática para ajustar ao conteúdo */
+    min-width: 100px; /* Largura mínima para evitar que fiquem muito pequenos */
     white-space: nowrap; /* Impede que o texto quebre em várias linhas */
+    flex: 1; /* Ocupa o espaço disponível proporcionalmente */
 }
 
 .filter-option:hover {
@@ -531,12 +532,20 @@ li {
     transform: scale(1.05); /* Mesmo efeito de escala */
 }
 
-/* Garante que os botões se ajustem corretamente em telas muito pequenas */
+/* Ajuste para telas pequenas */
+@media (max-width: 600px) {
+    .filter-option {
+        font-size: 0.9rem; /* Reduz o tamanho da fonte em telas pequenas */
+        padding: 6px 12px; /* Reduz o padding em telas pequenas */
+        min-width: 80px; /* Largura mínima menor em telas pequenas */
+    }
+}
+
 @media (max-width: 400px) {
-    .actions button {
-        font-size: 0.75rem; /* Reduz o tamanho da fonte */
-        padding: 6px; /* Reduz o padding */
-        min-width: 70px; /* Largura mínima menor */
+    .filter-option {
+        font-size: 0.8rem; /* Reduz ainda mais o tamanho da fonte em telas muito pequenas */
+        padding: 5px 10px; /* Reduz o padding em telas muito pequenas */
+        min-width: 70px; /* Largura mínima ainda menor */
     }
 }
 
