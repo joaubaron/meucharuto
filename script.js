@@ -1,4 +1,19 @@
-	document.addEventListener('DOMContentLoaded', () => {
+let startY = 0;
+
+document.addEventListener("touchstart", function(event) {
+    startY = event.touches[0].clientY;
+});
+
+document.addEventListener("touchmove", function(event) {
+    let currentY = event.touches[0].clientY;
+    
+    // Se o usuário puxar para baixo mais de 50px no topo da página
+    if (currentY - startY > 50 && window.scrollY === 0) {
+        location.reload(); // Recarrega a página
+    }
+});
+
+document.addEventListener('DOMContentLoaded', () => {
     displayCigars();
 });
 
