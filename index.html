@@ -20,7 +20,7 @@
         <input type="text" id="name" placeholder="Nome do Charuto" required>
         <input type="text" id="country" placeholder="País de Origem" required>
         <input type="text" id="description" placeholder="Avaliação" required>
-        <input type="text" id="pairing" placeholder="Harmonização (ex: Rum, Café...)" required>
+        <input type="text" id="pairing" placeholder="Harmonização (ex: Uísque, Rum, Café)" required>
 <div class="row">
             <input type="number" id="appearance" placeholder="Aparência (5-10)" min="5" max="10" required>
             <input type="number" id="burn" placeholder="Queima (5-10)" min="5" max="10" required>
@@ -46,6 +46,8 @@
     <input type="file" id="fileInput" style="display: none;">
 </div>
 
+<hr class="section">
+	
 <!-- Menu de Filtro Minimalista -->
 <div class="filter-menu">
     <div class="filter-option" onclick="showAll()">
@@ -59,13 +61,13 @@
     </div>
 </div>
 
-<h2 id="favoriteSection" class="section hidden">Favoritos <i class="fas fa-star" style="color: #FF4500;"></i></h2>
+<h2 id="favoriteSection" class="section hidden">Meus Favoritos <i class="fas fa-star" style="color: #FF4500;"></i></h2>
 <ul id="favoriteList" class="hidden"></ul>
 
-<h2 class="section hidden">Meus Charutos <i class="fas fa-smoking" style="color: #28a745; position: relative; top: -3px;"></i></h2>
+<h2 class="section hidden">Charutos Degustados <i class="fas fa-smoking" style="color: #28a745; position: relative; top: -3px;"></i></h2>
 <ul id="cigarList" class="hidden"></ul>
 
-<h2 id="deletedSection" class="section hidden">Excluídos <i class="fas fa-trash-alt trash-icon" style="color: #FF0000;"></i></h2>
+<h2 id="deletedSection" class="section hidden">Ítens Excluídos <i class="fas fa-trash-alt trash-icon" style="color: #FF0000;"></i></h2>
 <ul id="deletedList" class="hidden"></ul>
 
 <!-- Link para , acima da logo -->
