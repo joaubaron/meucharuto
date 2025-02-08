@@ -450,11 +450,9 @@ a:active {
     
     /* Separação visual entre seções */
 .section {
-    border: none; /* Remove qualquer borda padrão */
-    border-top: 2px dashed #ccc; /* Apenas a linha superior tracejada */
-    margin: 20px 0; /* Define o espaçamento vertical */
-    height: 0; /* Garante que a <hr> não tenha altura extra */
-    display: block; /* Evita estilos padrão do navegador */
+    margin-top: 20px; /* Menor espaçamento superior */
+    padding-top: 10px; /* Menor espaçamento interno */
+    border-top: 2px dashed #ccc; /* Linha tracejada */
 }
 
 .section h2 {
