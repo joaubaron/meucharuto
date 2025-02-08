@@ -447,7 +447,7 @@ function displayCigars() {
                         : `<button type="button" onclick="editCigar(${cigar.id})" class="editar">
                                 <i class="fas fa-edit"></i> Editar
                            </button>
-                           <button type="button"  onclick="deleteCigar(${cigar.id})" class="excluir">
+                           <button type="button" onclick="deleteCigar(${cigar.id})" class="excluir">
                                 <i class="fas fa-trash"></i> Excluir
                            </button>`}
                 </div>
