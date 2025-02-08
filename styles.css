@@ -511,7 +511,7 @@ li {
 .filter-option {
     padding: 8px 15px; /* Mesmo padding dos botões */
     font-size: 1rem; /* Mesmo tamanho de fonte */
-    background-color: #f5f5f5; /* Mesma cor de fundo */
+    background-color: #fffef0; /* Mesma cor de fundo */
     border-radius: 5px; /* Mesmo border-radius */
     cursor: pointer;
     transition: background 0.3s, transform 0.2s; /* Mesma transição */
