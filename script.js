@@ -1,19 +1,4 @@
-let startY = 0;
-
-document.addEventListener("touchstart", function(event) {
-    startY = event.touches[0].clientY;
-});
-
-document.addEventListener("touchmove", function(event) {
-    let currentY = event.touches[0].clientY;
-    
-    // Se o usuário puxar para baixo mais de 50px no topo da página
-    if (currentY - startY > 50 && window.scrollY === 0) {
-        location.reload(); // Recarrega a página
-    }
-});
-
-document.addEventListener('DOMContentLoaded', () => {
+	document.addEventListener('DOMContentLoaded', () => {
     displayCigars();
 });
 
@@ -459,10 +444,10 @@ function displayCigars() {
     <i class="fas fa-trash"></i> Eliminar
 </button>
                            </button>`
-                        : `<button onclick="editCigar(${cigar.id})" class="editar">
+                        : `<button type="button" onclick="editCigar(${cigar.id})" class="editar">
                                 <i class="fas fa-edit"></i> Editar
                            </button>
-                           <button onclick="deleteCigar(${cigar.id})" class="excluir">
+                           <button type="button"  onclick="deleteCigar(${cigar.id})" class="excluir">
                                 <i class="fas fa-trash"></i> Excluir
                            </button>`}
                 </div>
