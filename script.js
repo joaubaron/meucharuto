@@ -611,7 +611,7 @@ function exportData() {
         localStorage.setItem('lastExportedFileName', fileName);
 
         // Exibe a modal antes de salvar
-        document.getElementById('fileNameText').textContent = `Arquivo salvo como: ${fileName}`;
+        document.getElementById('fileNameText').textContent = `${fileName}`;
         document.getElementById('customAlert').style.display = 'flex';
     });
 }
