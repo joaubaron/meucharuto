@@ -7,8 +7,8 @@ document.addEventListener("touchstart", function(event) {
 document.addEventListener("touchmove", function(event) {
     let currentY = event.touches[0].clientY;
     
-    // Se o usuário puxar para baixo mais de 50px no topo da página
-    if (currentY - startY > 50 && window.scrollY === 0) {
+    // Se o usuário puxar para baixo mais de 100px no topo da página
+    if (currentY - startY > 100 && window.scrollY === 0) {
         location.reload(); // Recarrega a página
     }
 });
