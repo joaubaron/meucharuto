@@ -218,15 +218,18 @@ a:active {
     color: #333 !important;
     border: 1px solid #ccc !important;
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1) !important;
-    padding: 8px 16px;
+    padding: 10px 20px; /* Ajuste para melhor proporção */
     font-size: 1rem;
     border-radius: 5px;
     cursor: pointer;
     transition: background 0.3s, transform 0.2s;
     display: flex;
-    align-items: center;
-    justify-content: center;
+    align-items: center; /* Centraliza verticalmente */
+    justify-content: center; /* Centraliza horizontalmente */
     gap: 8px;
+    max-width: 150px; /* Define um limite para o botão */
+    width: 100%; /* Mantém o tamanho ajustável ao conteúdo */
+    text-align: center; /* Garante que o texto fique centralizado */
 }
 
 .entenderi-btn:hover {
@@ -316,8 +319,7 @@ a:active {
             padding: 20px;
         }
       	
-    .logo {
-    .logo {
+.logo {
     width: 300px; /* Tamanho maior */
     border-radius: 50%;
     margin: 20px auto 10px; /* Adiciona margem superior de 20px */
