@@ -225,10 +225,10 @@ function showMessageBeforeContent() {
         document.body.insertBefore(messageElement, document.body.firstChild);
 
         // Ajuste para empurrar a logo para baixo
-        const logo = document.querySelector('.logo'); // Seleciona a logo
+        const logo = document.querySelector('.logo'); // Substitua pelo seletor correto da sua logo
         if (logo) {
             logo.style.transition = 'margin-top 0.3s'; // Adiciona uma transição suave para o movimento da logo
-            logo.style.marginTop = '60px'; // Empurra a logo para baixo ao exibir a mensagem (ajuste o valor conforme necessário)
+            logo.style.marginTop = '50px'; // Empurra a logo para baixo ao exibir a mensagem
         }
 
         // Configura o desaparecimento automático após 6 segundos
