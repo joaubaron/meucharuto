@@ -605,7 +605,7 @@ function exportData() {
         const timestamp = `${day}${month}${year}-${hours}${minutes}`;
 
         // Define o nome do arquivo
-        fileName = `meuscharutos-${timestamp}.json`;
+        fileName = `meucharuto-${timestamp}.json`;
 
         // Salva o nome no localStorage para referência futura
         localStorage.setItem('lastExportedFileName', fileName);
