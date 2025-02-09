@@ -79,11 +79,11 @@ function exportData() {
 
 // Função para mostrar todas as seções
 function showAll() {
-    document.getElementById('favoriteSection').classList.remove('hidden');
+    document.getElementById('favoriteSection').classList.add('hidden');
     document.getElementById('cigarList').classList.remove('hidden');
-    document.getElementById('deletedSection').classList.remove('hidden');
-    document.getElementById('favoriteList').classList.remove('hidden');
-    document.getElementById('deletedList').classList.remove('hidden');
+    document.getElementById('deletedSection').classList.add('hidden');
+    document.getElementById('favoriteList').classList.add('hidden');
+    document.getElementById('deletedList').classList.add('hidden');
 
     // Garantir que o título "Charutos Degustados" seja exibido
     document.querySelector('h2.section:not(#favoriteSection):not(#deletedSection)').classList.remove('hidden');
