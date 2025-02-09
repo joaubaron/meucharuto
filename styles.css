@@ -320,12 +320,13 @@ a:active {
         }
       	
 .logo {
-        width: 300px; /* Tamanho maior */
-        border-radius: 50%;
-        margin: 0 auto 10px;
-        display: block;
-        border: 4px solid #ddd;
-    }
+    width: 300px;
+    border-radius: 50%;
+    margin: 30px auto 10px; /* Adiciona margem superior inicial */
+    display: block;
+    border: 4px solid #ddd;
+    transition: margin-top 0.3s; /* Transição suave para a margem superior */
+}
 
         h2 {
             font-size: 22px;
