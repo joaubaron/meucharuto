@@ -133,8 +133,8 @@ function showDeleted() {
 
     // Fecha o modal ao clicar no botão "Entendi"
     function closeModal() {
-        document.getElementById('modal').style.display = 'none';
-    }
+    document.getElementById('modal').style.display = 'none';
+}
 
     // Efeito de hover no link "Nota importante"
     document.getElementById('showModalLink').addEventListener('mouseenter', function() {
