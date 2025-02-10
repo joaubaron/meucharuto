@@ -11,10 +11,9 @@
 </head>
 <body>
 
+<div id="loading" style="text-align: center; display: none;">Carregando...</div>
+
 <div class="container" id="top">
-    <!-- Linha horizontal antes da logo -->
-    <hr style="margin: 20px 0; border-top: 1px solid #ccc;">
-    
     <img src="img/logo_meucharutos.jpg" alt="Logo Charutos Baron" class="logo">
     
     <form id="cigarForm" onsubmit="event.preventDefault(); addCigar();">
@@ -22,18 +21,16 @@
         <input type="text" id="country" placeholder="País de Origem" required>
         <input type="text" id="description" placeholder="Avaliação" required>
         <input type="text" id="pairing" placeholder="Harmonização (ex: Rum, café, uísque.)" required>
-        <div class="row">
+<div class="row">
             <input type="number" id="appearance" placeholder="Visual (5-10)" min="5" max="10" required>
             <input type="number" id="burn" placeholder="Queima (5-10)" min="5" max="10" required>
         </div>
         <div class="row">
             <input type="number" id="aroma" placeholder="Aroma (5-10)" min="5" max="10" required>
             <input type="number" id="taste" placeholder="Gosto (5-10)" min="5" max="10" required>
-        </div>
-    </form>
-</div>
+            </div>
         
-<!-- Correção: Fechando a div actions corretamente -->
+        <!-- Correção: Fechando a div actions corretamente -->
 <link rel="stylesheet" href="fontawesome/css/all.min.css">
  
 <div class="actions">
