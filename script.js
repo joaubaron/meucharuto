@@ -231,16 +231,16 @@ function showMessageBeforeContent() {
             logo.style.marginTop = '50px'; // Empurra a logo para baixo ao exibir a mensagem
         }
 
-        // Configura o desaparecimento automático após 6 segundos
+        // Configura o desaparecimento automático após 5 segundos
         setTimeout(() => {
-            document.body.removeChild(messageElement); // Remove a mensagem após 6 segundos
+            document.body.removeChild(messageElement); // Remove a mensagem após 5 segundos
 
             // Restaura a posição original da logo
             if (logo) {
                 logo.style.transition = 'margin-top 0.3s'; // Adiciona transição para suavizar a volta
                 logo.style.marginTop = '0'; // Restaura a posição original da logo
             }
-        }, 6000); // A mensagem desaparecerá após 6 segundos
+        }, 5000); // A mensagem desaparecerá após 5 segundos
     }
 }
 
