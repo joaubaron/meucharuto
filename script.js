@@ -445,7 +445,7 @@ function displayCigars() {
 
             li.innerHTML = `
                 <div class="cigar-info">
-                    <strong style="font-size: 1.2em;">${cigar.name}</strong><br>
+                    <strong style="font-size: 1.1em;">${cigar.name}</strong><br>
                     <img src="${flagSrc}" alt="${cigar.country}" style="width: 25px; height: 25px; margin-right: 5px; vertical-align: middle;">
                     <span style="position: relative; top: 2px;">${cigar.country}</span><br>
                     ${cigar.description}<br>
