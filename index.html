@@ -77,16 +77,20 @@
         <a href="https://www.pipesmoking360.com" target="_blank" style="text-decoration: none; display: inline-block; margin-bottom: 5px;">
             <img src="img/PIPESMOKING360.jpg" alt="Pipesmoking360" style="max-width: 180px; height: auto; border-radius: 0px; transition: transform 0.3s;">
         </a>
-        <p style="color: #333; margin: 5px 0; font-size: 14px; line-height: 1;">Tabacaria especializada em tabacos, charutos e cachimbos. Use o cupom de desconto MEUCHARUTO para ganhar 10% de desconto na sua primeira compra.</p>
+        <p style="color: #333; margin: 0 0 1px 0; font-size: 14px; line-height: 1.2;">
+            Tabacaria especializada em tabacos, charutos e cachimbos. Use o cupom de desconto <strong>MEUCHARUTO</strong> para ganhar 10% de desconto na sua primeira compra.
+        </p>
         
-            <a href="" style="text-decoration: none; display: inline-block; margin-top: 5px; margin-bottom: 0;">
+        <a href="" style="text-decoration: none; display: inline-block; margin-top: -8px;">
             <img src="img/logo_meucharutos.jpg" alt="Logo Charutos Baron" class="logo" style="width: 75px; height: auto; border-radius: 50%; border: 2px solid #D3D3D3; transition: transform 0.3s;">
-            </a>
-        <hr style="margin: 0px 0;">
-         <p></p>
-        <p style="margin: 1px 0; font-size: 14px; color: #333;">
-            <a href="#" id="showModalLink" style="text-decoration: none; color: #333; transition: color 0.3s; font-weight: bold;">
-                <strong>Nota importante!</strong>
+        </a>
+        
+        <!-- Linha <hr> com largura ajustada -->
+        <hr style="margin: 3px auto; width: 50%;">
+		<p></p>
+        <p style="margin: 1px 0; font-size: 8px; color: #333;">
+            <a href="#" id="showModalLink" style="text-decoration: none; color: #333; transition: color 0.3s;">
+                <strong style="font-size: 17px !important;">Nota importante!</strong>
             </a>
         </p>
     </div>
@@ -95,10 +99,8 @@
 <!-- Modal (janela de mensagem) -->
 <div id="modal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.8); z-index: 1000; justify-content: center; align-items: center;">
     <div style="background: #fff; padding: 15px; border-radius: 10px; max-width: 350px; width: 80%; text-align: center; color: #333;">
-        <!-- Texto "Nota importante" em negrito -->
-        <p style="font-weight: bold; font-size: 1.1em;">Nota importante!</p>
-        <p style="margin-top: 15px;"> 
-            <span style="color: #FF0000; font-weight: bold;">Atenção: </span>Seus dados são armazenados localmente e protegidos, mas podem ser perdidos em caso de limpeza ou troca de aparelho. Exporte-os regularmente.
+        <p style="margin-top: 5px; font-size: 0.9em; font-weight: bold; color: #333;">
+            <span style="color: #FF0000;">Atenção:</span> Seus dados são armazenados localmente e protegidos, mas podem ser perdidos em caso de limpeza ou troca de aparelho. Exporte-os regularmente.
         </p>
 
         <p style="margin-top: 15px; font-size: 0.9em; color: #666;">© 2025 José Augusto Baron.</p>
@@ -127,7 +129,9 @@
 <!-- Modal Personalizada para Exibir a Mensagem -->
 <div id="customAlert" class="modal">
     <div class="modal-content">
-        <p class="modal-message">Seu backup será salvo como:</p>
+        <p class="modal-instructions">
+            <strong>Seu backup será salvo como:</strong>
+        </p>
         <p id="fileNameText" class="file-name"></p>
 
         <!-- Instruções sobre a pasta Downloads -->
@@ -138,13 +142,12 @@
         <!-- Botões da modal -->
         <div class="modal-buttons">
             <button type="button" onclick="saveFile()" class="filter-option">
-    <i class="fas fa-file-export"></i> Exportar
-</button>
+                <i class="fas fa-file-export"></i> Exportar
+            </button>
 			
             <button type="button" onclick="closeCustomAlert()" class="filter-option">
-    <i class="fas fa-circle-xmark"></i> Cancelar
-</button>
-
+                <i class="fas fa-circle-xmark"></i> Cancelar
+            </button>
         </div>
     </div>
 </div>
