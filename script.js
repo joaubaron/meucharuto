@@ -101,18 +101,6 @@ function showFavorites() {
     document.querySelector('h2.section:not(#favoriteSection):not(#deletedSection)').classList.add('hidden');
 }
 
-// Função para mostrar apenas os degustados
-function showTasted() {
-    document.getElementById('favoriteSection').classList.add('hidden');
-    document.getElementById('cigarList').classList.remove('hidden');
-    document.getElementById('deletedSection').classList.add('hidden');
-    document.getElementById('favoriteList').classList.add('hidden');
-    document.getElementById('deletedList').classList.add('hidden');
-
-    // Garantir que o título "Charutos Degustados" seja exibido
-    document.querySelector('h2.section:not(#favoriteSection):not(#deletedSection)').classList.remove('hidden');
-}
-
 // Função para mostrar apenas os excluídos
 function showDeleted() {
     document.getElementById('favoriteSection').classList.add('hidden');
@@ -123,6 +111,18 @@ function showDeleted() {
 
     // Ocultar o título "Charutos Degustados"
     document.querySelector('h2.section:not(#favoriteSection):not(#deletedSection)').classList.add('hidden');
+}
+
+// Função para mostrar apenas os degustados
+function showTasted() {
+    document.getElementById('favoriteSection').classList.add('hidden');
+    document.getElementById('cigarList').classList.remove('hidden');
+    document.getElementById('deletedSection').classList.add('hidden');
+    document.getElementById('favoriteList').classList.add('hidden');
+    document.getElementById('deletedList').classList.add('hidden');
+
+    // Garantir que o título "Charutos Degustados" seja exibido
+    document.querySelector('h2.section:not(#favoriteSection):not(#deletedSection)').classList.remove('hidden');
 }
 
     // Abre o modal ao clicar no link
@@ -593,27 +593,45 @@ function restoreCigar(id) {
     getAllCigars((cigars) => {
         const cigar = cigars.find((c) => c.id === id);
         if (cigar) {
+            const wasFavorite = cigar.favorite; // Verifica se era favorito antes de ser excluído
             cigar.deleted = false;
             saveCigar(cigar);
 
             setTimeout(() => {
-                showAll(); // Garante que a aba "Charutos" está visível
-                const cigarList = document.getElementById('cigarList');
-                const restoredItem = [...cigarList.children].find(
-                    item => item.textContent.includes(cigar.name) && 
-                            item.textContent.includes(cigar.country)
-                );
-                
-                if (restoredItem) {
-                    restoredItem.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'center'
-                    });
+                if (wasFavorite) {
+                    showFavorites(); // Se era favorito, exibe a aba de Favoritos
+                    const favoriteList = document.getElementById('favoriteList');
+                    const restoredItem = [...favoriteList.children].find(
+                        item => item.textContent.includes(cigar.name) && 
+                                item.textContent.includes(cigar.country)
+                    );
+
+                    if (restoredItem) {
+                        restoredItem.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'center'
+                        });
+                    }
+                } else {
+                    showAll(); // Se NÃO era favorito, exibe a aba "Meus Charutos"
+                    const cigarList = document.getElementById('cigarList');
+                    const restoredItem = [...cigarList.children].find(
+                        item => item.textContent.includes(cigar.name) && 
+                                item.textContent.includes(cigar.country)
+                    );
+
+                    if (restoredItem) {
+                        restoredItem.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'center'
+                        });
+                    }
                 }
-            }, 300); // Aumente o delay para garantir atualização do DOM
+            }, 500); // Tempo extra para garantir atualização do DOM
         }
     });
 }
+
 
 let deleteCigarId = null;
 

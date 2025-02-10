@@ -595,9 +595,17 @@ li {
     margin-top: -12px; /* Move o ícone para cima */
 }
 
-/* Estilos para as seções quando filtradas */
+/* styles.css */
 .hidden {
-    display: none;
+    display: none !important;
+}
+
+/* Mensagem para listas vazias */
+.empty-list-message {
+    text-align: center;
+    color: #666;
+    font-style: italic;
+    padding: 20px;
 }
 
 /* Modal */
