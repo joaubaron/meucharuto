@@ -11,9 +11,10 @@
 </head>
 <body>
 
-<div id="loading" style="text-align: center; display: none;">Carregando...</div>
-
 <div class="container" id="top">
+    <!-- Linha horizontal antes da logo -->
+    <hr style="margin: 20px 0; border-top: 1px solid #ccc;">
+    
     <img src="img/logo_meucharutos.jpg" alt="Logo Charutos Baron" class="logo">
     
     <form id="cigarForm" onsubmit="event.preventDefault(); addCigar();">
@@ -21,16 +22,18 @@
         <input type="text" id="country" placeholder="País de Origem" required>
         <input type="text" id="description" placeholder="Avaliação" required>
         <input type="text" id="pairing" placeholder="Harmonização (ex: Rum, café, uísque.)" required>
-<div class="row">
+        <div class="row">
             <input type="number" id="appearance" placeholder="Visual (5-10)" min="5" max="10" required>
             <input type="number" id="burn" placeholder="Queima (5-10)" min="5" max="10" required>
         </div>
         <div class="row">
             <input type="number" id="aroma" placeholder="Aroma (5-10)" min="5" max="10" required>
             <input type="number" id="taste" placeholder="Gosto (5-10)" min="5" max="10" required>
-            </div>
+        </div>
+    </form>
+</div>
         
-        <!-- Correção: Fechando a div actions corretamente -->
+<!-- Correção: Fechando a div actions corretamente -->
 <link rel="stylesheet" href="fontawesome/css/all.min.css">
  
 <div class="actions">
@@ -59,13 +62,22 @@
     </div>
 </div>
 
-<h2 id="favoriteSection" class="section hidden">Meus Favoritos <i class="fas fa-star" style="color: #FF4500;"></i></h2>
+<h2 id="favoriteSection" class="section hidden">
+  Meus Favoritos 
+  <i class="fas fa-star" style="color: #FF4500;"></i>
+</h2>
 <ul id="favoriteList" class="hidden"></ul>
 
-<h2 class="section hidden">Meus Charutos <i class="fas fa-list" style="color: #28a745;"></i></h2>
+<h2 class="section hidden">
+  Meus Charutos 
+  <i class="fas fa-list" style="color: #28a745; position: relative; top: 1px;"></i>
+</h2>
 <ul id="cigarList" class="hidden"></ul>
 
-<h2 id="deletedSection" class="section hidden">Excluídos <i class="fas fa-trash-alt trash-icon" style="color: #FF0000;"></i></h2>
+<h2 id="deletedSection" class="section hidden">
+  Excluídos 
+  <i class="fas fa-trash-alt trash-icon" style="color: #FF0000;"></i>
+</h2>
 <ul id="deletedList" class="hidden"></ul>
 
 <!-- Link para , acima da logo -->
