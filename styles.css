@@ -261,9 +261,17 @@ a:active {
     color: #ff8c00; /* Cor do ícone semelhante */
 }
 
+/* Estilo para o texto dentro do link "Voltar ao topo" */
+.back-to-top {
+    font-size: 18px !important; /* Força a alteração do tamanho da fonte */
+    text-decoration: none; /* Remove o sublinhado do link, caso haja */
+    color: inherit; /* Garante que a cor do texto não seja alterada */
+}
+
 /* Estilo para o ícone dentro do link "Voltar ao topo" */
 .back-to-top i {
     font-size: 18px; /* Diminui o tamanho da seta */
+	color: red; /* Cor da seta para vermelha */
     margin-top: 40px;
     margin-bottom: 40px;
     vertical-align: middle;
@@ -329,7 +337,7 @@ a:active {
 }
 
         h2 {
-            font-size: 19px;
+            font-size: 18px;
             margin-top: 20px;
             color: #444;
             text-align: left;
