@@ -504,24 +504,41 @@ requestIdleCallback(displayCigars);
 function toggleFavorite(id) {
     getAllCigars((cigars) => {
         const cigar = cigars.find((c) => c.id === id);
-        cigar.favorite = !cigar.favorite;
+        const wasFavorite = cigar.favorite;
+        cigar.favorite = !wasFavorite;
         saveCigar(cigar);
 
         setTimeout(() => {
-            showAll(); // Garante que a aba "Charutos" está visível
-            const cigarList = document.getElementById('cigarList');
-            const targetItem = [...cigarList.children].find(
-                item => item.textContent.includes(cigar.name) && 
-                        item.textContent.includes(cigar.country)
-            );
-            
-            if (targetItem) {
-                targetItem.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'center'
-                });
+            if (cigar.favorite) {
+                showFavorites(); // Mostra a aba de favoritos
+                const favoriteList = document.getElementById('favoriteList');
+                const favoriteItem = [...favoriteList.children].find(
+                    item => item.textContent.includes(cigar.name) && 
+                            item.textContent.includes(cigar.country)
+                );
+                
+                if (favoriteItem) {
+                    favoriteItem.scrollIntoView({ 
+                        behavior: 'smooth', 
+                        block: 'center' 
+                    });
+                }
+            } else {
+                showAll(); // Mostra a aba principal
+                const cigarList = document.getElementById('cigarList');
+                const targetItem = [...cigarList.children].find(
+                    item => item.textContent.includes(cigar.name) && 
+                            item.textContent.includes(cigar.country)
+                );
+                
+                if (targetItem) {
+                    targetItem.scrollIntoView({ 
+                        behavior: 'smooth', 
+                        block: 'center' 
+                    });
+                }
             }
-        }, 300); // Aumente o delay para garantir atualização do DOM
+        }, 300); // Delay para garantir atualização do DOM
     });
 }
 
@@ -544,13 +561,29 @@ function editCigar(id) {
     });
 }
 
+// Função deleteCigar atualizada
 function deleteCigar(id) {
     getAllCigars((cigars) => {
         const cigar = cigars.find((c) => c.id === id);
         if (cigar) {
             cigar.deleted = true;
             saveCigar(cigar);
-            document.getElementById('deletedSection').scrollIntoView({ behavior: 'smooth' });
+
+            setTimeout(() => {
+                showDeleted(); // Mostra a aba de excluídos
+                const deletedList = document.getElementById('deletedList');
+                const deletedItem = [...deletedList.children].find(
+                    item => item.textContent.includes(cigar.name) && 
+                            item.textContent.includes(cigar.country)
+                );
+                
+                if (deletedItem) {
+                    deletedItem.scrollIntoView({ 
+                        behavior: 'smooth', 
+                        block: 'center' 
+                    });
+                }
+            }, 300); // Delay para garantir atualização do DOM
         }
     });
 }
