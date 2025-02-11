@@ -119,6 +119,12 @@
     }
 }
 
+@media (max-width: 400px) {
+    .file-name {
+        font-size: 14px; /* Diminui o tamanho da fonte em telas pequenas */
+    }
+}
+
 #loading {
     position: fixed;
     top: 0;
@@ -665,9 +671,12 @@ li {
 
 /* Nome do arquivo */
 .file-name {
-    font-size: 1.0em;
-    font-weight: bold;
-    color: #FF4500;
+    white-space: nowrap; /* Impede a quebra de linha */
+    overflow: hidden; /* Oculta o excesso de texto */
+    text-overflow: ellipsis; /* Adiciona "..." caso o texto seja muito grande */
+    max-width: 100%; /* Garante que ele não ultrapasse os limites do container */
+    display: block; /* Garante que o comportamento seja previsível */
+    color: #FF0000; /* Define a cor vermelha para o texto */
 }
 
 /* Estilo dos botões da modal de exportação */
