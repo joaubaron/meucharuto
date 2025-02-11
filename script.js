@@ -295,19 +295,19 @@ function addCigar() {
     const average = ((appearance + burn + aroma + taste) / 4).toFixed(1);
 
     const cigar = {
-    id: editCigarId || Date.now(),
-    name,
-    country,
-    description,
-    appearance,
-    burn,
-    aroma,
-    taste,
-    average: parseFloat(average),
-    pairing, // Novo campo de harmonização
-    favorite: editCigarId ? editCigarFavorite : false,
-    deleted: false,
-};
+        id: editCigarId || Date.now(),
+        name,
+        country,
+        description,
+        appearance,
+        burn,
+        aroma,
+        taste,
+        average: parseFloat(average),
+        pairing,
+        favorite: editCigarId ? editCigarFavorite : false,
+        deleted: false,
+    };
 
     saveCigar(cigar);
     editCigarId = null;
@@ -315,20 +315,29 @@ function addCigar() {
     document.getElementById('cigarForm').reset();
 
     setTimeout(() => {
-        // Verifica em ambas as listas (Charutos e Favoritos)
-        const listsToCheck = ['cigarList', 'favoriteList'];
-        let newItem = null;
-
-        listsToCheck.forEach(listId => {
-            const list = document.getElementById(listId);
-            const item = [...list.children].find(
+        // Verifica se o item era favorito antes de ser editado
+        if (cigar.favorite) {
+            showFavorites(); // Mostra a aba de favoritos
+            const favoriteList = document.getElementById('favoriteList');
+            const newItem = [...favoriteList.children].find(
                 item => item.textContent.includes(name) && item.textContent.includes(country)
             );
-            if (item) newItem = item;
-        });
 
-        if (newItem) {
-            scrollToElement(newItem);
+            // Rola suavemente para o item na lista de Favoritos
+            if (newItem) {
+                scrollToElement(newItem);
+            }
+        } else {
+            showAll(); // Mostra a aba de Charutos
+            const cigarList = document.getElementById('cigarList');
+            const newItem = [...cigarList.children].find(
+                item => item.textContent.includes(name) && item.textContent.includes(country)
+            );
+
+            // Rola suavemente para o item na lista de Charutos
+            if (newItem) {
+                scrollToElement(newItem);
+            }
         }
     }, 100);
 }
@@ -351,6 +360,20 @@ if (newItem) {
     scrollToElement(newItem);
 }
 
+const countryAliases = {
+    "eua": "Estados Unidos",
+    "usa": "Estados Unidos",
+    "estados unidos da américa": "Estados Unidos",
+    "inglaterra": "Reino Unido",
+    "reino unido da grã-bretanha e irlanda do norte": "Reino Unido",
+    "holanda": "Países Baixos",
+    "birmânia": "Mianmar",
+    "mianmar": "Birmânia",
+    "méxico": "Estados Unidos Mexicanos",
+    "emirados árabes": "Emirados Árabes Unidos",
+    "emirados árabes unidos": "Emirados Árabes Unidos"
+};
+
 function displayCigars() {
     const bandeirasPaises = {
         "Angola": 'flags/ao.svg',
@@ -368,9 +391,9 @@ function displayCigars() {
         "Costa Rica": 'flags/cr.svg',
         "Cuba": 'flags/cu.svg',
         "República Checa": 'flags/cz.svg',
-		"Alemanha": 'flags/de.svg',
+        "Alemanha": 'flags/de.svg',
         "República Dominicana": 'flags/do.svg',
-		"Equador": 'flags/ec.svg',
+        "Equador": 'flags/ec.svg',
         "Espanha": 'flags/es.svg',
         "França": 'flags/fr.svg',
         "Reino Unido": 'flags/gb.svg',
@@ -399,7 +422,7 @@ function displayCigars() {
         "Trinidad e Tobago": 'flags/tt.svg',
         "Tanzânia": 'flags/tz.svg',
         "Uganda": 'flags/ug.svg',
-		"Estados Unidos": 'flags/us.svg',
+        "Estados Unidos": 'flags/us.svg',
         "Uruguai": 'flags/uy.svg',
         "Venezuela": 'flags/ve.svg',
         "Vietnã": 'flags/vn.svg'
@@ -411,6 +434,12 @@ function displayCigars() {
     function normalizeString(str) {
         return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
     }
+
+    // Criar um novo mapa de bandeiras com chaves normalizadas
+    const bandeirasNormalizadas = {};
+    Object.keys(bandeirasPaises).forEach(pais => {
+        bandeirasNormalizadas[normalizeString(pais)] = bandeirasPaises[pais];
+    });
 
     getAllCigars((cigars) => {
         cigars.sort((a, b) => b.average - a.average);
@@ -433,15 +462,16 @@ function displayCigars() {
             const progressColor = cigar.average >= 5 ? "#FF4500" : "#C0C0C0";
 
             // Normalizar o nome do país digitado
-            const normalizedCountry = normalizeString(cigar.country);
+            let normalizedCountry = normalizeString(cigar.country);
 
-            // Procurar o país com nome normalizado e verificar se existe
-            const bandeiraSrc = Object.keys(bandeirasPaises).find(pais =>
-                normalizeString(pais) === normalizedCountry
-            );
+            // Verificar se o país tem um alias e substituir
+            let countryName = countryAliases[normalizedCountry] || cigar.country;
 
-            // Caso o país não seja encontrado, usar a bandeira padrão
-            const flagSrc = bandeiraSrc ? bandeirasPaises[bandeiraSrc] : "flags/un.svg";
+            // Normalizar novamente após a substituição do alias
+            let normalizedCountryName = normalizeString(countryName);
+
+            // Procurar a bandeira no objeto de bandeiras normalizadas
+            let flagSrc = bandeirasNormalizadas[normalizedCountryName] || "flags/un.svg";
 
             li.innerHTML = `
                 <div class="cigar-info">
@@ -462,18 +492,17 @@ function displayCigars() {
                 <div class="cigar-actions">
                     ${cigar.deleted
                         ? `<button type="button" onclick="restoreCigar(${cigar.id})" class="restaurar">
-    <i class="fas fa-undo"></i> Restaurar
-</button>
-<button type="button" onclick="deletePermanently(${cigar.id})" class="excluir-permanente">
-    <i class="fas fa-trash"></i> Eliminar
-</button>
-                           </button>`
+                              <i class="fas fa-undo"></i> Restaurar
+                          </button>
+                          <button type="button" onclick="deletePermanently(${cigar.id})" class="excluir-permanente">
+                              <i class="fas fa-trash"></i> Eliminar
+                          </button>`
                         : `<button type="button" onclick="editCigar(${cigar.id})" class="editar">
-                                <i class="fas fa-edit"></i> Editar
-                           </button>
-                           <button type="button" onclick="deleteCigar(${cigar.id})" class="excluir">
-                                <i class="fas fa-trash"></i> Excluir
-                           </button>`}
+                              <i class="fas fa-edit"></i> Editar
+                          </button>
+                          <button type="button" onclick="deleteCigar(${cigar.id})" class="excluir">
+                              <i class="fas fa-trash"></i> Excluir
+                          </button>`}
                 </div>
             `;
 
@@ -494,9 +523,6 @@ function displayCigars() {
     });
 }
 
-// Executar de forma assíncrona sem travar a UI
-requestIdleCallback(displayCigars);
- 
 // Executar de forma assíncrona sem travar a UI
 requestIdleCallback(displayCigars);
 
@@ -658,9 +684,6 @@ function closeDeleteConfirmationModal() {
     document.getElementById('deleteConfirmationModal').style.display = 'none';
     deleteCigarId = null;
 }
-
-let fileUrl = null; // Variável global para armazenar a URL do arquivo
-let fileName = null; // Variável global para armazenar o nome do arquivo
 
 function exportData() {
     getAllCigars((cigars) => {

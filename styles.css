@@ -269,15 +269,15 @@ a:active {
 
 /* Estilo para o texto dentro do link "Voltar ao topo" */
 .back-to-top {
-    font-size: 18px !important; /* Força a alteração do tamanho da fonte */
-    text-decoration: none; /* Remove o sublinhado do link, caso haja */
-    color: inherit; /* Garante que a cor do texto não seja alterada */
+    font-size: 18px !important; /* Garante que o tamanho permaneça fixo */
+    text-decoration: none;
+    color: inherit; /* Remove a cor preta forçada */
 }
 
 /* Estilo para o ícone dentro do link "Voltar ao topo" */
 .back-to-top i {
-    font-size: 18px; /* Diminui o tamanho da seta */
-	color: red; /* Cor da seta para vermelha */
+    font-size: 18px !important; /* Força a fonte fixa */
+    color: red; /* Cor do ícone */
     margin-top: 40px;
     margin-bottom: 40px;
     vertical-align: middle;
@@ -287,15 +287,17 @@ a:active {
     cursor: pointer;
 }
 
-/* Mantém a mudança de cor ao passar o mouse */
+/* Mantém a cor ao passar o mouse, sem alterar o tamanho */
 .back-to-top:hover {
-    color: #007bff;
+    color: red !important; /* Cor vermelha ao passar o mouse */
     cursor: pointer;
+    font-size: 18px !important; /* Garante que o tamanho não mude */
 }
 
-/* Mantém o tamanho fixo ao passar o mouse */
+/* Mantém o tamanho do ícone fixo ao passar o mouse */
 .back-to-top:hover i {
-    font-size: 18px; /* Garante que a seta continue menor */
+    color: #FF0000 !important; /* Cor vermelha ao passar o mouse */
+    font-size: 18px !important; /* Impede aumento da fonte */
 }
 
 /* Ajuste no título 'Excluídos' para manter a consistência */
