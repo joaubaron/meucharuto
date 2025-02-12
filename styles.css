@@ -140,23 +140,24 @@
     color: #333;
 }
 
-/* Impede qualquer transformação ao passar o mouse, clicar ou ao focar */
+/* Garanta especificidade para o link da Nota Importante */
+#showModalLink,
 #showModalLink:hover,
 #showModalLink:active,
 #showModalLink:focus {
-    transform: none !important;    /* Impede qualquer transformação de escala */
-    color: #FF0000 !important;     /* Garante que a cor se mantenha */
-    font-size: 19px !important;  /* Garante que o tamanho da fonte se mantenha */
+    color: #444 !important; /* Corrige todos os estados */
+    transform: none !important;
+    font-size: 19px !important;
 }
 
 /* Estilo global para todos os links */
 a, a:visited, a:hover {
-    color: black !important;     /* Cor vermelha */
-    font-size: 19px !important;  /* Tamanho fixo */
-    font-weight: bold;             /* Negrito */
-    text-decoration: none;         /* Sem sublinhado */
-    font-family: inherit;          /* Herda a fonte */
-    transform: none !important;    /* Garantir que nenhum link tenha transformação */
+    color: #444 !important; /* Alterado de black para #444 */
+    font-size: 19px !important;
+    font-weight: bold;
+    text-decoration: none;
+    font-family: inherit;
+    transform: none !important;
 }
 
 input[type="text"], input[type="number"] {
@@ -271,32 +272,39 @@ a:active {
 .back-to-top {
     font-size: 18px !important; /* Garante que o tamanho permaneça fixo */
     text-decoration: none;
-    color: inherit; /* Remove a cor preta forçada */
+    color: black !important; /* Sempre preto */
+}
+
+/* Estilo para o texto dentro do link "Voltar ao topo" */
+.back-to-top {
+    font-size: 18px !important; /* Garante que o tamanho permaneça fixo */
+    text-decoration: none;
+    color: #444 !important; /* Sempre #444 */
 }
 
 /* Estilo para o ícone dentro do link "Voltar ao topo" */
 .back-to-top i {
     font-size: 18px !important; /* Força a fonte fixa */
-    color: red; /* Cor do ícone */
+    color: #444 !important; /* Sempre #444 */
     margin-top: 40px;
     margin-bottom: 40px;
     vertical-align: middle;
     position: relative;
     top: -1px;
-    transition: color 0.3s ease;
+    transition: none; /* Remove transição de cor */
     cursor: pointer;
 }
 
-/* Mantém a cor ao passar o mouse, sem alterar o tamanho */
+/* Mantém a cor #444 ao passar o mouse */
 .back-to-top:hover {
-    color: red !important; /* Cor vermelha ao passar o mouse */
+    color: #444 !important; /* Sempre #444 */
     cursor: pointer;
     font-size: 18px !important; /* Garante que o tamanho não mude */
 }
 
 /* Mantém o tamanho do ícone fixo ao passar o mouse */
 .back-to-top:hover i {
-    color: #FF0000 !important; /* Cor vermelha ao passar o mouse */
+    color: #444 !important; /* Sempre #444 */
     font-size: 18px !important; /* Impede aumento da fonte */
 }
 
@@ -513,8 +521,9 @@ a:active {
 }
 
 #showModalLink:hover {
-    opacity: 0.9;
-    text-shadow: 0 2px 4px rgba(255, 0, 0, 0.1);
+    opacity: 1; /* Mantém a opacidade padrão */
+    text-shadow: none !important; /* Remove qualquer sombra */
+    color: #444 !important; /* Garante que a cor fique sempre #444 */
 }
 
 #favoriteList {
@@ -738,4 +747,40 @@ footer {
     flex-direction: column;
     align-items: center; /* Centraliza o conteúdo horizontalmente */
     gap: 2px; /* Espaçamento entre os elementos internos */
+}
+
+/* Estilo do modal de exportação (customAlert) */
+#customAlert .modal-content {
+    background: #fff;
+    padding: 15px;
+    border-radius: 10px;
+    max-width: 350px;
+    width: 80%;
+    text-align: center;
+    color: #333; /* Cor do texto igual ao modal de nota importante */
+    font-family: 'Lato', sans-serif; /* Fonte igual */
+}
+
+#customAlert .modal-instructions {
+    font-size: 0.9em;
+    color: #333; /* Cor igual ao modal de nota importante */
+    margin: 10px 0;
+}
+
+#customAlert .file-name {
+    color: #FF0000; /* Vermelho mantido para destaque */
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+#customAlert .modal-buttons button {
+    background-color: #f5f5f5;
+    color: #333;
+    border: 1px solid #ccc;
+    font-family: 'Lato', sans-serif; /* Fonte igual */
+    padding: 8px 15px;
+}
+
+#customAlert .modal-buttons button:hover {
+    background-color: #e0e0e0;
 }
