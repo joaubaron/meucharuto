@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=3.0">
+    <title>Meu Charuto</title>
+    <link rel="stylesheet" href="components/fontawesome/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+	
+</head>
+<body>
+
+<div id="loading" style="text-align: center; display: none;">Carregando...</div>
+
+<div class="container" id="top">
+	<!-- <hr> com borda transparente para criar apenas um espaço em branco -->
+    <hr style="border: none; height: 1px;">
+    <img src="components/img/logo_meucharutos.jpg" alt="Logo Charutos Baron" class="logo">
+	<hr style="border: none; height: 20px;">
+    
+    <form id="cigarForm" onsubmit="event.preventDefault(); addCigar();">
+        <input type="text" id="name" placeholder="Nome do Charuto" required>
+        <input type="text" id="country" placeholder="País de Origem" required>
+        <input type="text" id="description" placeholder="Avaliação" required>
+        <input type="text" id="pairing" placeholder="Harmonização (ex: Rum, café, uísque.)" required>
+<div class="row">
+            <input type="number" id="appearance" placeholder="Visual (5-10)" min="5" max="10" required>
+            <input type="number" id="burn" placeholder="Queima (5-10)" min="5" max="10" required>
+        </div>
+        <div class="row">
+            <input type="number" id="aroma" placeholder="Aroma (5-10)" min="5" max="10" required>
+            <input type="number" id="taste" placeholder="Gosto (5-10)" min="5" max="10" required>
+            </div>
+        
+        <!-- Correção: Fechando a div actions corretamente -->
+<link rel="stylesheet" href="fontawesome/css/all.min.css">
+ 
+<div class="actions">
+    <button type="submit" class="salvar">
+        <i class="fas fa-save"></i> Salvar
+    </button>
+    <button type="button" class="exportar" onclick="exportData()">
+        <i class="fas fa-file-export"></i> Exportar
+    </button>
+    <button type="button" class="importar" onclick="document.getElementById('fileInput').click()">
+        <i class="fas fa-file-import"></i> Importar
+    </button>
+    <input type="file" id="fileInput" style="display: none;">
+</div>
+	
+<!-- Menu de Filtro Minimalista -->
+<div class="filter-menu">
+    <div class="filter-option" onclick="showAll()">
+        <i class="fas fa-list" ></i> Charutos
+    </div>
+    <div class="filter-option" onclick="showFavorites()">
+        <i class="fas fa-star" ></i> Favoritos
+    </div>
+    <div class="filter-option" onclick="showDeleted()">
+        <i class="fas fa-trash-alt" ></i> Excluídos
+    </div>
+</div>
+
+<h2 id="favoriteSection" class="section hidden">
+  Meus Favoritos 
+  <i class="fas fa-star" style="color: #FF0000;"></i>
+</h2>
+<ul id="favoriteList" class="hidden"></ul>
+
+<h2 class="section hidden">
+  Meus Charutos 
+  <i class="fas fa-list" style="color: #FF0000; position: relative; top: 1px;"></i>
+</h2>
+<ul id="cigarList" class="hidden"></ul>
+
+<h2 id="deletedSection" class="section hidden">
+  Excluídos 
+  <i class="fas fa-trash-alt trash-icon" style="color: #FF0000;"></i>
+</h2>
+<ul id="deletedList" class="hidden"></ul>
+
+<!-- Link para , acima da logo -->
+<a id="backToTop" class="back-to-top" onclick="scrollToTop()">Voltar ao topo <i class="fas fa-arrow-up"></i></a>
+
+<!-- Nota de rodapé -->
+<footer>
+    <div class="footer-content" style="max-width: 800px; margin: 0 auto; text-align: center; font-family: Arial, sans-serif; padding: 5px;">     
+        <a href="https://www.pipesmoking360.com" target="_blank" style="text-decoration: none; display: inline-block; margin-bottom: 5px;">
+            <img src="components/img/PIPESMOKING360.jpg" alt="Pipesmoking360" style="max-width: 200px; height: auto; border-radius: 0px; transition: transform 0.3s;">
+        </a>
+        <p style="color: #333; margin: 0 0 1px 0; font-size: 14px; line-height: 1.2;">
+            Tabacaria especializada em tabacos, charutos e cachimbos. Use o cupom de desconto <strong>MEUCHARUTO</strong> para ganhar 10% de desconto na sua primeira compra.
+        </p>
+        <p></p>
+        <!-- Linha <hr> com largura ajustada -->
+        <hr style="margin: 3px auto; width: 50%;">
+		<p></p>
+        <p style="margin: 1px 0; font-size: 8px; color: #333;">
+            <a href="#" id="showModalLink" style="text-decoration: none; color: #333; transition: color 0.3s;">
+                <strong style="font-size: 15px !important;">Nota importante!</strong>
+            </a>
+        </p>
+    </div>
+</footer>
+
+<!-- Modal (janela de mensagem) -->
+<div id="modal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.8); z-index: 1000; justify-content: center; align-items: center;">
+    <div style="background: #fff; padding: 15px; border-radius: 10px; max-width: 350px; width: 80%; text-align: center; color: #333;">
+        <p style="margin-top: 5px; font-size: 0.9em; color: #333;">
+            <strong style="color: #FF0000;">Atenção:</strong> Seus dados são armazenados localmente e protegidos, mas podem ser perdidos em caso de limpeza ou troca de aparelho. Exporte-os regularmente.
+        </p>
+
+        <p style="margin: 0; font-size: 0.8em; color: #666;">© 2025 José Augusto Baron.</p>
+		<p style="margin: 0; font-size: 0.8em; color: #666;">Todos os direitos reservados.</p>
+
+
+        <div style="display: flex; justify-content: center; margin-top: 20px;">
+            <button onclick="closeModal(); event.preventDefault();" class="filter-option entenderi-btn"><i class="fas fa-check-circle"></i> Entendi</button>
+        </div>
+    </div>
+</div>
+
+<div id="deleteConfirmationModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.5); z-index: 1000; justify-content: center; align-items: center;">
+    <div style="background: #fff; padding: 20px; border-radius: 10px; max-width: 350px; width: 80%; text-align: center;">
+        <p style="font-weight: bold; font-size: 1.1em;">Tem certeza de que deseja eliminar este charuto permanentemente?</p>
+        <div style="margin-top: 20px; display: flex; justify-content: center; gap: 10px;">
+            <button id="confirmDeleteButton" type="button" class="filter-option">
+                <i class="fas fa-trash"></i> Eliminar
+            </button>
+            <button id="cancelDeleteButton" type="button" class="filter-option">
+                <i class="fas fa-circle-xmark"></i> Cancelar
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Personalizada para Exibir a Mensagem -->
+<div id="customAlert" class="modal">
+    <div class="modal-content">
+        <p class="modal-instructions">
+            <strong>Seu backup será salvo como:</strong>
+        </p>
+        <p id="fileNameText" class="file-name"></p>
+
+        <!-- Instruções sobre a pasta Downloads -->
+        <p class="modal-instructions">
+            Ele deve estar na pasta Downloads. Faça uma cópia antes de restaurar.
+        </p>
+
+        <!-- Botões da modal -->
+        <div class="modal-buttons">
+            <button type="button" onclick="saveFile()" class="filter-option">
+                <i class="fas fa-file-export"></i> Exportar
+            </button>
+			
+            <button type="button" onclick="closeCustomAlert()" class="filter-option">
+                <i class="fas fa-circle-xmark"></i> Cancelar
+            </button>
+        </div>
+    </div>
+</div>
+
+<script src="components/script.js"></script>
+
+</body>
+</html>
